@@ -39,15 +39,15 @@ spl_autoload_register(function ($class) {
 
 ### 1.2. Espaces de nom et rangement
 
-- [ ] Créer un dossier `Computer`
-- [ ] Créer une classe `Desktop` (ordinateur fixe de type "tour") dans le fichier `Computer/Desktop.php`
-- [ ] Ajouter le `namespace` de cette classe
-- [ ] Faire en sorte que la classe `Desktop` étende la classe `Computer`
-- [ ] Dans index.php, créer un objet de type `Desktop` et vérifier qu'il ait les même propriétés et méthodes que l'objet Computer (et lui donner des valeurs différentes)
-- [ ] Donner des valeurs aux différentes propriétés de votre objet
-- [ ] Afficher le contenu de votre objet avec la fonction `var_dump()`
-- [ ] Sur le même modèle, créer les classes `Laptop` (ordinateur portable) et `Tablet` (tablette)
-- [ ] Créer / Instancier des objets de ces deux types dans `index.php` et en afficher le contenu avec `var_dump()`
+- [x] Créer un dossier `Computer`
+- [x] Créer une classe `Desktop` (ordinateur fixe de type "tour") dans le fichier `Computer/Desktop.php`
+- [x] Ajouter le `namespace` de cette classe
+- [x] Faire en sorte que la classe `Desktop` étende la classe `Computer`
+- [x] Dans index.php, créer un objet de type `Desktop` et vérifier qu'il ait les même propriétés et méthodes que l'objet Computer (et lui donner des valeurs différentes)
+- [x] Donner des valeurs aux différentes propriétés de votre objet
+- [x] Afficher le contenu de votre objet avec la fonction `var_dump()`
+- [x] Sur le même modèle, créer les classes `Laptop` (ordinateur portable) et `Tablet` (tablette)
+- [x] Créer / Instancier des objets de ces deux types dans `index.php` et en afficher le contenu avec `var_dump()`
 
 ## 2. Classes abstraites
 

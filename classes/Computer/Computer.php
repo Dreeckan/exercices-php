@@ -1,5 +1,7 @@
 <?php
 
+namespace Computer;
+
 class Computer
 {
     /**
