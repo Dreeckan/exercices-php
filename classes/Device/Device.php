@@ -1,5 +1,7 @@
 <?php
 
+namespace Device;
+
 abstract class Device
 {
     /**

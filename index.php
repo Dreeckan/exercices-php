@@ -53,8 +53,6 @@ $computer->setComponents([$cg, $cpu, $ram]);
 $computer->setDevices([$mouse, $keyboard, $speaker]);
 $computer->setName('Ilianov');
 
-var_dump($computer);
-
 $laptop = new Laptop();
 $laptop->setComponents([$cg, $cpu, $ram]);
 $laptop->setDevices([$mouse, $keyboard, $speaker]);

@@ -64,10 +64,10 @@ spl_autoload_register(function ($class) {
   - [X] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setComponents()` de vos objets ordinateurs
 
 - Créer les dossiers et les fichiers des composants et des périphériques
-  - [ ] Créer le fichier `Device/AbstractDevice.php` et la classe abstraite `AbstractDevice`
-  - [ ] Y ajouter les propriétés `name` et `brand`, de type string.
-  - [ ] Ajouter les getters et les setters
-  - [ ] Créer les fichiers `Device/Keyboard.php` (clavier), `Device/Mouse.php` (souris), `Device/Speaker.php` (enceintes)
-  - [ ] Créer les classes correspondantes et les faire étendre `AbstractDevice`
-  - [ ] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setDevices()` de vos objets ordinateurs
+  - [X] Créer le fichier `Device/AbstractDevice.php` et la classe abstraite `AbstractDevice`
+  - [X] Y ajouter les propriétés `name` et `brand`, de type string.
+  - [X] Ajouter les getters et les setters
+  - [X] Créer les fichiers `Device/Keyboard.php` (clavier), `Device/Mouse.php` (souris), `Device/Speaker.php` (enceintes)
+  - [X] Créer les classes correspondantes et les faire étendre `AbstractDevice`
+  - [X] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setDevices()` de vos objets ordinateurs
 
