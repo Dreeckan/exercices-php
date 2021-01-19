@@ -16,12 +16,12 @@ abstract class  AbstractDevice
      */
     protected $brand;
 
-    public function name()
+    public function getName()
     {
         return $this->name;
     }
 
-    public function brand()
+    public function getBrand()
     {
         return $this->brand;
     }
