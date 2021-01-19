@@ -1,28 +1,61 @@
 <?php
 
+use Component\GraphicCard;
+
 include 'includes/autoload.php';
 
-$asus = new Computer();
+// $asus = new Computer();
 
-$components = [
-    'Processeur',
-    'MotherBoard',
-];
-$asus->setComponents($components);
+// $components = [
+//     'Processeur',
+//     'MotherBoard',
+// ];
+// $asus->setComponents($components);
 
 
-$devices = [
-    'souris',
-    'clavier',
-];
-$asus->setDevices($devices);
+// $devices = [
+//     'souris',
+//     'clavier',
+// ];
+// $asus->setDevices($devices);
 
-$name = 
-    'Asus-Assogba'
-;
-$asus->setName($name);
+// $name = 
+//     'Asus-Assogba'
+// ;
+// $asus->setName($name);
 
-var_dump($asus);
+// var_dump($asus);
+
+
+// Instance des objets Component
+$carteGraphique = new Component\GraphicCard();
+$carteGraphique->setName('GTX3080');
+$carteGraphique->setBrand('Asus');
+
+$ram = new Component\Ram();
+$carteGraphique->setName('GTX3080');
+$carteGraphique->setBrand('Asus');
+
+$cpu = new Component\Cpu();
+$cpu->setName('GTX3080');
+$cpu->setBrand('Asus');
+
+$carteMere = new Component\MotherBoard;
+$carteMere->setName('GTX3080');
+$carteMere->setBrand('Asus');
+
+// Instance des objets Device
+$clavier = new Device\Keyboard();
+$clavier->setName('GTX3080');
+$clavier->setBrand('Asus');
+
+$souris = new Device\Mouse();
+$souris->setName('GTX3080');
+$souris->setBrand('Asus');
+
+$micro = new Device\Speaker();
+$micro->setName('GTX3080');
+$micro->setBrand('Asus');
 
 // Desktop
 
@@ -31,12 +64,22 @@ $hp = new Computer\Desktop();
 $components = [
     'Processeur',
     'MotherBoard',
+    $carteGraphique,
+    $ram,
+    $cpu,
+    $carteMere,
+    
 ];
 $hp->setComponents($components);
+
 
 $devices = [
     'souris',
     'clavier',
+    $clavier,
+    $souris,
+    $micro->setName('AudiRS4'),
+    $micro->setBrand('Apple'),
 ];
 $hp->setDevices($devices);
 
@@ -51,16 +94,10 @@ var_dump($hp);
 
 $mac = new Computer\Laptop();
 
-$components = [
-    'Processeur',
-    'MotherBoard',
-];
+
 $mac->setComponents($components);
 
-$devices = [
-    'souris',
-    'clavier',
-];
+
 $mac->setDevices($devices);
 
 $name = 
@@ -74,16 +111,8 @@ var_dump($mac);
 
 $samsung = new Computer\Tablet();
 
-$components = [
-    'Processeur',
-    'MotherBoard',
-];
 $samsung->setComponents($components);
 
-$devices = [
-    'souris',
-    'clavier',
-];
 $samsung->setDevices($devices);
 
 $name = 

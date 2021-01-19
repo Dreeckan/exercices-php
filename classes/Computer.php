@@ -1,7 +1,7 @@
 <?php
 
 
-class Computer {
+abstract class Computer {
 
     /**
      * @var array
