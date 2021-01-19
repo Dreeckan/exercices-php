@@ -23,17 +23,17 @@ class Computer
      * @param array $components
      */
 
-    public function components()
+    public function getComponents()
     {
         return $this->components;
     }
 
-    public function devices()
+    public function getDevices()
     {
         return $this->devices;
     }
 
-    public function name()
+    public function getName()
     {
         return $this->name;
     }
