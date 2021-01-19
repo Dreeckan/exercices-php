@@ -61,3 +61,6 @@ $tablet1->setDevices([$mouse, $keyboard, $speaker]);
 
 
 var_dump($tablet1);
+
+$testValidationDesktop1 = new Validator\ComputerValidator();
+var_dump($testValidationDesktop1->validate($desktop1));
