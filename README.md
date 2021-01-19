@@ -51,23 +51,23 @@ spl_autoload_register(function ($class) {
 
 ## 2. Classes abstraites
 
-- [ ] Rendre la classe `Computer` abstraite (ajouter le mot-clé `abstract` à la déclaration de la classe)
-- [ ] Constater l'erreur dans le fichier `index.php`
-- [ ] Enlever l'objet de type `Computer` de vos tests. Il n'est maintenant plus possible d'instancier d'objets `Computer` et il faut désormais utiliser une classe _concrète_ pour créer des ordinateurs
+- [x] Rendre la classe `Computer` abstraite (ajouter le mot-clé `abstract` à la déclaration de la classe)
+- [x] Constater l'erreur dans le fichier `index.php`
+- [x] Enlever l'objet de type `Computer` de vos tests. Il n'est maintenant plus possible d'instancier d'objets `Computer` et il faut désormais utiliser une classe _concrète_ pour créer des ordinateurs
 
 - Créer les dossiers et les fichiers des composants
 
-  - [ ] Créer le fichier `Component/AbstractComponent.php` et la classe abstraite `AbstractComponent`
-  - [ ] Y ajouter les propriétés `name` et `brand`, de type string.
-  - [ ] Ajouter les getters et les setters
-  - [ ] Créer les fichiers `Component/MotherBoard.php` (carte mère), `Component/Ram.php` (mémoire vive), `Component/Cpu.php` (processeur), `Component/GraphicCard.php` (carte graphique)
-  - [ ] Créer les classes correspondantes et les faire étendre `AbstractComponent`
+  - [x] Créer le fichier `Component/AbstractComponent.php` et la classe abstraite `AbstractComponent`
+  - [x] Y ajouter les propriétés `name` et `brand`, de type string.
+  - [x] Ajouter les getters et les setters
+  - [x] Créer les fichiers `Component/MotherBoard.php` (carte mère), `Component/Ram.php` (mémoire vive), `Component/Cpu.php` (processeur), `Component/GraphicCard.php` (carte graphique)
+  - [x] Créer les classes correspondantes et les faire étendre `AbstractComponent`
   - [ ] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setComponents()` de vos objets ordinateurs
 
 - Créer les dossiers et les fichiers des composants et des périphériques
-  - [ ] Créer le fichier `Device/AbstractDevice.php` et la classe abstraite `AbstractDevice`
-  - [ ] Y ajouter les propriétés `name` et `brand`, de type string.
-  - [ ] Ajouter les getters et les setters
-  - [ ] Créer les fichiers `Device/Keyboard.php` (clavier), `Device/Mouse.php` (souris), `Device/Speaker.php` (enceintes)
-  - [ ] Créer les classes correspondantes et les faire étendre `AbstractDevice`
+  - [x] Créer le fichier `Device/AbstractDevice.php` et la classe abstraite `AbstractDevice`
+  - [x] Y ajouter les propriétés `name` et `brand`, de type string.
+  - [x] Ajouter les getters et les setters
+  - [x] Créer les fichiers `Device/Keyboard.php` (clavier), `Device/Mouse.php` (souris), `Device/Speaker.php` (enceintes)
+  - [x] Créer les classes correspondantes et les faire étendre `AbstractDevice`
   - [ ] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setDevices()` de vos objets ordinateurs

@@ -2,7 +2,7 @@
 
 namespace Computer;
 
-class Computer
+abstract class AbstractComputer
 {
     /**
      * @var string
@@ -22,8 +22,11 @@ class Computer
     // met à jour le contenu de la propriété `name` à partir de la variable `$name`
 
     /**
+     * @var string
+     *
      * @return string
      */
+
     public function setName($name)
     {
         return $this->name = $name;
@@ -32,8 +35,11 @@ class Computer
     // met à jour le contenu de la propriété `components` à partir de la variable `$components`
 
     /**
+     * @var array
+     *
      * @return array
      */
+
     public function setComponents($components)
     {
         return $this->components = $components;
@@ -42,14 +48,17 @@ class Computer
     // met à jour le contenu de la propriété `devices` à partir de la variable `$devices`
 
     /**
+     * @var array
+     *
      * @return array
      */
+
     public function setDevices($devices)
     {
         return $this->devices = $devices;
     }
 
-    // renvoie le contenu de la propriété `components`
+    // renvoie le contenu de la propriété `name`
 
     /**
      * @return string
@@ -70,7 +79,7 @@ class Computer
     }
 
 
-    // renvoie le contenu de la propriété `components`
+    // renvoie le contenu de la propriété `devices`
 
     /**
      * @return array

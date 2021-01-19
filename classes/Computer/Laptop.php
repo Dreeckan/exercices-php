@@ -2,6 +2,6 @@
 
 namespace Computer;
 
-class Laptop extends Computer
+class Laptop extends AbstractComputer
 {
 }
