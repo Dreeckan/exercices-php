@@ -2,9 +2,14 @@
 
 // Cette fonction permet de récupérer une classe voulue.
 
+use Component\Cpu;
+use Component\GraphiCard;
+use Component\Motherboard;
+use Component\Ram;
 use Computer\Desktop;
 use Computer\Laptop;
 use Computer\Tablet;
+use Device\Keyboard;
 
 spl_autoload_register(function ($class) {
     require_once "classes/$class.php";
@@ -17,46 +22,61 @@ spl_autoload_register(function ($class) {
  * Si on souhaite simplement afficher les valeur utiliser la fonction "get()".
  */
 
+//configurer les parametres de l'objet Keyboard
+$keyboard = new Keyboard;
+$keyboard->setBrand("Logitech");
+$keyboard->setName("G10");
 
-$asus = new Computer;
-$asus->setComponents([
-    "processor" => "ryzen 7",
-    "graphic card" => "RX5700XT"
-]);
-$asus->setDevices([
-    "webcam" => "Logitech C920"
-]);
-$asus->setName("Asus Rog");
+//configuer les parametres de l'objet motherboard
+$motherboard = new Motherboard;
+$motherboard->setChipset("AMD");
+$motherboard->setBrand("Asus");
+$motherboard->setName("b450");
+
+//configuer les parametres de l'objet cpu
+$cpu = new Cpu;
+$cpu->setFrequence("4.2Ghz");
+$cpu->setBrand("AMD");
+$cpu->setName("Ryzen 7");
+
+//configuer les parametres de l'objet graphicard
+$graphiCard = new GraphiCard;
+$graphiCard->setVideoRam("8go");
+$graphiCard->setBrand("MSI");
+$graphiCard->setName("rx5700xt");
+
+//configuer les parametres de l'objet ram
+$ram = new Ram;
+$ram->setMemoire("4x4go");
+$ram->setBrand("Corsair");
+$ram->setName("RGB");
+
+//Cette variable est un tableau qui contient tous les composants.
+$composant = [
+    $motherboard,
+    $cpu,
+    $graphiCard,
+    $ram
+];
+
+//Cette variable est un tableau qui contient tous les devices.
+$peripherique = [
+    $keyboard
+];
 
 $msi = new Desktop;
-$msi->setComponents([
-    "processor" => "intel 7",
-    "graphic card" => "2080ti"
-]);
-$msi->setDevices([
-    "webcam" => "monvier"
-]);
+$msi->setComponents($composant);
+$msi->setDevices($keyboard);
 $msi->setName("Msi RGB");
 
 $macBook = new Laptop;
-$macBook->setComponents([
-    "processor" => "M1",
-    "graphic card" => "Apple Card"
-]);
-$macBook->setDevices([
-    "webcam" => "AppleCam"
-]);
+$macBook->setComponents($composant);
+$macBook->setDevices($keyboard);
 $macBook->setName("Mac Book pro");
 
 $galaxyTab = new Tablet;
-$galaxyTab->setComponents([
-    "processor" => "S1",
-    "graphic card" => "Samsung Card"
-]);
-$galaxyTab->setDevices([
-    "webcam" => "Camsung"
-]);
-
+$galaxyTab->setComponents($composant);
+$galaxyTab->setDevices($keyboard);
 $galaxyTab->setName("Galaxy Tab 8");
 
-var_dump($asus, $msi, $macBook, $galaxyTab);
+var_dump($msi, $macBook, $galaxyTab);
