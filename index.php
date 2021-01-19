@@ -5,8 +5,8 @@
 require_once "includes/autoload.php";
 
 $computer1 = new Computer();
-$computer1->name = "AsusX5";
-$computer1->components = ["cpu, gpu, motherboard, ram"];
-$computer1->devices = ["mouse, keyboard, screen, webcam"];
+$computer1->setName = "AsusX5";
+$computer1->setComponents = ["cpu", "gpu", "motherboard", "ram"];
+$computer1->setDevices = ["mouse", "keyboard", "screen", "webcam"];
 
 var_dump($computer1);

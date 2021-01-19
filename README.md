@@ -26,16 +26,16 @@ spl_autoload_register(function ($class) {
 
 ### 1.1 Utiliser des getters et des setters
 
-- [ ] Dans l'objet `Computer`, passer toutes les propriétés en `protected`
-- [ ] Ajouter les méthodes "getters" :
-  - [ ] `getComponents()` qui renvoie le contenu de la propriété `components`
-  - [ ] `getDevices()` qui renvoie le contenu de la propriété `devices`
-  - [ ] `getName()` qui renvoie le contenu de la propriété `name`
-- [ ] Ajouter les méthodes "setters" :
-  - [ ] `setComponents($components)` qui met à jour le contenu de la propriété `components` à partir de la variable `$components`
-  - [ ] `setDevices($devices)` qui met à jour le contenu de la propriété `devices` à partir de la variable `$devices`
-  - [ ] `setName($name)` qui met à jour le contenu de la propriété `name` à partir de la variable `$name`
-- [ ] Mettre à jour votre fichier `index.php` pour en conserver le fonctionnement
+- [x] Dans l'objet `Computer`, passer toutes les propriétés en `protected`
+- [x] Ajouter les méthodes "getters" :
+  - [x] `getComponents()` qui renvoie le contenu de la propriété `components`
+  - [x] `getDevices()` qui renvoie le contenu de la propriété `devices`
+  - [x] `getName()` qui renvoie le contenu de la propriété `name`
+- [x] Ajouter les méthodes "setters" :
+  - [x] `setComponents($components)` qui met à jour le contenu de la propriété `components` à partir de la variable `$components`
+  - [x] `setDevices($devices)` qui met à jour le contenu de la propriété `devices` à partir de la variable `$devices`
+  - [x] `setName($name)` qui met à jour le contenu de la propriété `name` à partir de la variable `$name`
+- [x] Mettre à jour votre fichier `index.php` pour en conserver le fonctionnement
 
 ### 1.2. Espaces de nom et rangement
 
