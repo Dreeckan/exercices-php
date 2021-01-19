@@ -56,12 +56,12 @@ spl_autoload_register(function ($class) {
 - [X] Enlever l'objet de type `Computer` de vos tests. Il n'est maintenant plus possible d'instancier d'objets `Computer` et il faut désormais utiliser une classe *concrète* pour créer des ordinateurs
 
 - Créer les dossiers et les fichiers des composants
-  - [ ] Créer le fichier `Component/AbstractComponent.php` et la classe abstraite `AbstractComponent`
-  - [ ] Y ajouter les propriétés `name` et `brand`, de type string.
-  - [ ] Ajouter les getters et les setters
-  - [ ] Créer les fichiers `Component/MotherBoard.php` (carte mère), `Component/Ram.php` (mémoire vive), `Component/Cpu.php` (processeur), `Component/GraphicCard.php` (carte graphique)
-  - [ ] Créer les classes correspondantes et les faire étendre `AbstractComponent`
-  - [ ] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setComponents()` de vos objets ordinateurs
+  - [X] Créer le fichier `Component/AbstractComponent.php` et la classe abstraite `AbstractComponent`
+  - [X] Y ajouter les propriétés `name` et `brand`, de type string.
+  - [X] Ajouter les getters et les setters
+  - [X] Créer les fichiers `Component/MotherBoard.php` (carte mère), `Component/Ram.php` (mémoire vive), `Component/Cpu.php` (processeur), `Component/GraphicCard.php` (carte graphique)
+  - [X] Créer les classes correspondantes et les faire étendre `AbstractComponent`
+  - [X] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setComponents()` de vos objets ordinateurs
 
 - Créer les dossiers et les fichiers des composants et des périphériques
   - [ ] Créer le fichier `Device/AbstractDevice.php` et la classe abstraite `AbstractDevice`
