@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
+use Traits\HasNameTrait;
 
 abstract class  Computer implements HasNameInterface
 {
@@ -16,11 +17,6 @@ abstract class  Computer implements HasNameInterface
      * @var array
      */
     protected $devices;
-
-    /**
-     * @var string
-     */
-    protected $name;
 
     /**
      * @param array $components
@@ -36,11 +32,6 @@ abstract class  Computer implements HasNameInterface
         return $this->devices;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
     public function setComponents($components)
     {
         $this->components = $components;
@@ -51,10 +42,5 @@ abstract class  Computer implements HasNameInterface
         $this->devices = $devices;
     }
 
-    public function setName(?string $name): HasNameInterface
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    use HasNameTrait;
 }
