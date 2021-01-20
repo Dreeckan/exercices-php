@@ -1,7 +1,9 @@
 <?php 
 namespace Component;
 
-abstract class AbstractComponent {
+use interfaces\HasNameInterface;
+
+abstract class AbstractComponent implements HasNameInterface {
 
     /**
      * @var string
@@ -18,7 +20,7 @@ abstract class AbstractComponent {
      *
      * @return  string
      */ 
-    public function getName()
+    public function getName():?string
     {
         return $this->name;
     }
@@ -30,7 +32,7 @@ abstract class AbstractComponent {
      *
      * @return  self
      */ 
-    public function setName(string $name)
+    public function setName(?string $name): HasNameInterface
     {
         $this->name = $name;
 
