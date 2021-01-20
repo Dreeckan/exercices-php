@@ -37,17 +37,17 @@ $speaker->setName("S-150");
 $speaker->setBrand("Logitech");
 
 
-// instanciation des computer
+// instanciation des computers
 
 $desktop1 = new Computer\Desktop();
-$desktop1->setName = "Asus";
+$desktop1->setName("Asus");
 $desktop1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
 $desktop1->setDevices([$mouse, $keyboard, $speaker]);
 
 var_dump($desktop1);
 
 $laptop1 = new Computer\Laptop();
-$laptop1->setName = "Macbook";
+$laptop1->setName("Macbook");
 $laptop1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
 $laptop1->setDevices([$mouse, $keyboard, $speaker]);
 
@@ -55,7 +55,7 @@ $laptop1->setDevices([$mouse, $keyboard, $speaker]);
 var_dump($laptop1);
 
 $tablet1 = new Computer\Tablet();
-$tablet1->setName = "Ipad";
+$tablet1->setName("Ipad");
 $tablet1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
 $tablet1->setDevices([$mouse, $keyboard, $speaker]);
 
