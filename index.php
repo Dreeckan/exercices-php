@@ -2,6 +2,8 @@
 
 require_once 'includes/autoload.php';
 
+use Validator\ComputerValidator;
+
 //Instancier les objets component
 
 $cpu = new Component\Cpu();
@@ -34,23 +36,46 @@ $speaker = new Device\Speaker();
 $speaker->setName('Leviathan 5.1 Noir');
 $speaker->setBrand('Razer');
 
+$components =[
+    $cpu,
+    $motherBoard,
+    $graphicCard,
+    $ram
+];
+
+$devices = [
+    $keyboard,
+    $mouse,
+    $speaker
+];
+
 //Instancier les objets computer
 
 $desktop = new Computer\Desktop();
-$desktop->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
-$desktop->setDevices([$keyboard, $mouse, $speaker]);
+$desktop->setComponents([$components]);
+$desktop->setDevices([$devices]);
 $desktop->setName('HP Omen 870-211nf');
 
 $laptop = new Computer\Laptop();
-$laptop->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
-$laptop->setDevices([$keyboard, $mouse, $speaker]);
+$laptop->setComponents([$components]);
+$laptop->setDevices([$devices]);
 $laptop->setName('Hp EliteBook 820 G1');
 
 $tablet = new Computer\Tablet();
-$tablet->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
-$tablet->setDevices([$keyboard, $mouse, $speaker]);
+$tablet->setComponents([$components]);
+$tablet->setDevices([$devices]);
 $tablet->setName('iPad');
 
-var_dump($desktop);
-var_dump($laptop);
-var_dump($tablet);
+$validator = new ComputerValidator;
+$validator->validate($desktop);
+
+$validator1 = new ComputerValidator;
+$validator1->validate($laptop);
+
+$validator2 = new ComputerValidator;
+$validator2->validate($tablet);
+
+
+var_dump($validator->validate($desktop));
+var_dump($validator->validate($laptop));
+var_dump($validator->validate($tablet));

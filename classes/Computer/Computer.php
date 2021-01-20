@@ -2,7 +2,6 @@
 
 namespace Computer;
 
-use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
 
@@ -11,12 +10,12 @@ abstract class Computer implements HasNameInterface
     /**
      * @var array
      */
-    protected $components;
+    protected $components = [];
 
     /**
      * @var array
      */
-    protected $devices;
+    protected $devices = [];
 
     // met à jour le contenu de la propriété `components` à partir de la variable `$components`
 
