@@ -4,39 +4,9 @@ namespace Device;
 
 use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
+use Traits\HasNameTrait;
+use Traits\HasBrandTrait;
 
-abstract class AbstractDevice implements HasNameInterface, HasBrandInterface
+abstract class AbstractDevice implements HasNameInterface, HasBrandInterface, HasNameTrait, HasBrandTrait
 {
-
-    /**
-     * @var string
-     */
-    protected $name;
-    /**
-     * @var string
-     */
-    protected $brand;
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(?string $n): HasNameInterface
-    {
-        $this->name = $n;
-
-        return $this;
-    }
-
-    public function getBrand(): ?string
-    {
-        return $this->brand;
-    }
-
-    public function setBrand(?string $b): HasBrandInterface
-    {
-        $this->brand = $b;
-        return $this;
-    }
 }
