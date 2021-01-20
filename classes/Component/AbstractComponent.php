@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Component;
 
+use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
 
-abstract class  AbstractComponent implements HasNameInterface
+abstract class  AbstractComponent implements HasNameInterface, HasBrandInterface
 {
     /**
      * @var string
@@ -23,7 +24,7 @@ abstract class  AbstractComponent implements HasNameInterface
         return $this->name;
     }
 
-    public function getBrand()
+    public function getBrand(): ?string
     {
         return $this->brand;
     }
@@ -35,8 +36,10 @@ abstract class  AbstractComponent implements HasNameInterface
         return $this;
     }
 
-    public function setBrand($brand)
+    public function setBrand(?string $brand): HasBrandInterface
     {
         $this->brand = $brand;
+
+        return $this;
     }
 }

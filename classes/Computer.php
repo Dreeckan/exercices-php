@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
 
 abstract class  Computer implements HasNameInterface
