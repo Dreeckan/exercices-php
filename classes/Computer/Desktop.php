@@ -2,8 +2,8 @@
 
 namespace Computer;
 
-use Computer;
+use Computer\Computer;
 
-class Desktop extends Computer\Computer
+class Desktop extends Computer
 {
 }

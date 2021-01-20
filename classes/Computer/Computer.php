@@ -1,7 +1,10 @@
 <?php
 namespace Computer;
 
-abstract class Computer
+use Interfaces\HasNameInterface;
+use Interfaces\HasBrandInterface;
+
+abstract class Computer implements HasNameInterface
 {
     /**
      * @var array
@@ -64,7 +67,7 @@ abstract class Computer
     /**
      * Get the value of name
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -74,7 +77,7 @@ abstract class Computer
      *
      * @return  self
      */
-    public function setName($name)
+    public function setName(?string $name): HasNameInterface
     {
         $this->name = $name;
 

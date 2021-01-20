@@ -2,8 +2,8 @@
 
 namespace Computer;
 
-use Computer;
+use Computer\Computer;
 
-class Laptop extends Computer\Computer
+class Laptop extends Computer
 {
 }
