@@ -10,6 +10,7 @@ use Computer\Desktop;
 use Computer\Laptop;
 use Computer\Tablet;
 use Device\Keyboard;
+use Validator\ComputerValidator;
 
 spl_autoload_register(function ($class) {
     require_once "classes/$class.php";
@@ -79,4 +80,7 @@ $galaxyTab->setComponents($composant);
 $galaxyTab->setDevices($keyboard);
 $galaxyTab->setName("Galaxy Tab 8");
 
-var_dump($msi, $macBook, $galaxyTab);
+$validator = new ComputerValidator;
+$validator->validate($msi);
+
+var_dump($validator->validate($msi));

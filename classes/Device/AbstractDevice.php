@@ -7,6 +7,8 @@ use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
 use Traits\HasBrandTrait;
 
-abstract class AbstractDevice implements HasNameInterface, HasBrandInterface, HasNameTrait, HasBrandTrait
+abstract class AbstractDevice implements HasNameInterface, HasBrandInterface
 {
-}
+    use HasNameTrait;
+    use HasBrandTrait;
+};

@@ -4,8 +4,9 @@ use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
 
 
-abstract class Computer implements HasNameInterface, HasNameTrait
+abstract class Computer implements HasNameInterface
 {
+    use HasNameTrait;
     /**
      * @var array
      */
