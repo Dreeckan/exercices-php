@@ -125,6 +125,8 @@ $samsung->setName($name);
 
 $computerValidator = new ComputerValidator();
 $validez = $computerValidator->validate($hp);
+var_dump($validez);
 $validez = $computerValidator->validate($mac);
+var_dump($validez);
 $validez = $computerValidator->validate($samsung);
 var_dump($validez);
