@@ -15,6 +15,8 @@ use Device\Keyboard;
 use Device\Mouse;
 use Device\Speaker;
 
+use Validator\ComputerValidator;
+
 //Les fonctions nous permettent de modifier / récupérer et afficher les valeurs
 
 $cpu = new Cpu();
@@ -51,7 +53,7 @@ $mac->setComponents([$cpu, $motherBoard, $graphicCard, $ram]);
 $mac->setDevices([$keyboard, $mouse, $speaker]);
 $mac->setName('test');
 
-var_dump($mac);
+//var_dump($mac);
 
 $files = new Desktop();
 $files->setComponents(["processor",
@@ -61,4 +63,8 @@ $files->setComponents(["processor",
 $files->setDevices(["Windows"]);
 $files->setName("MSI");
 
-var_dump($files);
+//var_dump($files);
+
+$computerValidator = new ComputerValidator();
+$validate = $computerValidator->validate($mac);
+var_dump($validate);
