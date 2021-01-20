@@ -1,6 +1,7 @@
 <?php
 
 use Interfaces\HasNameInterface;
+use Traits\HasNameTrait;
 
 abstract class Computer implements HasNameInterface
 {
@@ -18,7 +19,6 @@ abstract class Computer implements HasNameInterface
    * @var string
    */
 
-    protected $name;
     /*
     Les propriétés, méthodes ou constantes définies avec le mot clef protected
      ne vont être accessibles que depuis l’intérieur de la classe qui les a définies
@@ -42,10 +42,6 @@ abstract class Computer implements HasNameInterface
     {
         return $this->devices;
     }
-    public function getName(): ?string
-    {
-        return  $this->name;
-    }
     //SETTERS
     public function setComponents($composents)
     {
@@ -55,9 +51,5 @@ abstract class Computer implements HasNameInterface
     {
         $this->devices = $devices;
     }
-    public function setName(?string $name): HasNameInterface
-    {
-        $this->name = $name;
-        return $this;
-    }
+    use HasNameTrait;
 }
