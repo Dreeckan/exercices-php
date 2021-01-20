@@ -23,19 +23,19 @@
   - [X] Créer une branche `votreNom-exo-4`
   - [X] Créer le dossier `classes/Traits`, nous allons y ranger nos traits.
   - [X] Y créer le fichier `HasNameTrait.php` et le trait `HasNameTrait`
-    - [ ] Y déplacer la déclaration de la propriété `$name`
-    - [ ] Y déplacer la déclaration de la méthode `getName`
-    - [ ] Y déplacer la déclaration de la méthode `setName`
-    - [ ] Appeler le trait `HasNameTrait` dans les classes `AbstractDevice`, `Computer` et `AbstractComponent` (attention aux `namespace` et aux `use`)
-    - [ ] Supprimer les autres déclaration de la propriété `$name` et des méthodes `getName`et `setName`
-    - [ ] Vérifier que votre code fonctionne toujours (et corriger si besoin)
+    - [X] Y déplacer la déclaration de la propriété `$name`
+    - [X] Y déplacer la déclaration de la méthode `getName`
+    - [X] Y déplacer la déclaration de la méthode `setName`
+    - [X] Appeler le trait `HasNameTrait` dans les classes `AbstractDevice`, `Computer` et `AbstractComponent` (attention aux `namespace` et aux `use`)
+    - [X] Supprimer les autres déclaration de la propriété `$name` et des méthodes `getName`et `setName`
+    - [X] Vérifier que votre code fonctionne toujours (et corriger si besoin)
     
-  - [ ] Sur le même modèle créer le fichier `HasBrandTrait.php` et le trait `HasBrandTrait`
-    - [ ] Y déplacer la déclaration de la propriété `$brand`
-    - [ ] Y déplacer la déclaration de la méthode `getBrand`
-    - [ ] Y déplacer la déclaration de la méthode `setBrand`
-    - [ ] Appeler le trait `HasBrandTrait` dans les classes `AbstractDevice` et `AbstractComponent` (attention aux `namespace` et aux `use`)
-    - [ ] Supprimer les autres déclaration de la propriété `$brand` et des méthodes `getBrand`et `setBrand`
-    - [ ] Vérifier que votre code fonctionne toujours (et corriger si besoin)
+  - [X] Sur le même modèle créer le fichier `HasBrandTrait.php` et le trait `HasBrandTrait`
+    - [X] Y déplacer la déclaration de la propriété `$brand`
+    - [X] Y déplacer la déclaration de la méthode `getBrand`
+    - [X] Y déplacer la déclaration de la méthode `setBrand`
+    - [X] Appeler le trait `HasBrandTrait` dans les classes `AbstractDevice` et `AbstractComponent` (attention aux `namespace` et aux `use`)
+    - [X] Supprimer les autres déclaration de la propriété `$brand` et des méthodes `getBrand`et `setBrand`
+    - [X] Vérifier que votre code fonctionne toujours (et corriger si besoin)
     
-  - [ ] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github
+  - [X] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github
