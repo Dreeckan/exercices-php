@@ -13,6 +13,7 @@ use Computer\Tablet;
 use Device\Keyboard;
 use Device\Mouse;
 use Device\Speaker;
+use Interfaces\HasNameInterface;
 
 $cpu0 = new Cpu();
 $cpu0->setName('Ryzen5 3600');
