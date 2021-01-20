@@ -3,9 +3,11 @@
 namespace Computer;
 
 use Interfaces\HasNameInterface;
+use Traits\HasNameTrait;
 
 abstract class Computer implements HasNameInterface
 {
+    use HasNameTrait;
     /**
      * @var array
      */
@@ -16,8 +18,8 @@ abstract class Computer implements HasNameInterface
     protected $devices = [];
     /**
      * @var string
+     * protected $name;
      */
-    protected $name;
 
     public function getComponents()
     {
@@ -39,6 +41,8 @@ abstract class Computer implements HasNameInterface
         $this->devices = $d;
     }
 
+    // On déplace le code dans le trait
+/*
     public function getName(): ?string
     {
         return $this->name;
@@ -49,4 +53,5 @@ abstract class Computer implements HasNameInterface
         $this->name = $n;
         return $this;
     }
+*/
 }
