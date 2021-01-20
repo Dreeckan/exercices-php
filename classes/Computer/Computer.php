@@ -2,7 +2,9 @@
 
 namespace Computer;
 
-abstract class Computer
+use Interfaces\HasNameInterface;
+
+abstract class Computer implements HasNameInterface
 {
     /**
      * @var string
@@ -27,9 +29,10 @@ abstract class Computer
      * @return string
      */
 
-    public function setName($name)
+    public function setName(?string $name): HasNameInterface
     {
-        return $this->name = $name;
+        $this->name = $name;
+        return $this;
     }
 
     // met à jour le contenu de la propriété `components` à partir de la variable `$components`
@@ -63,10 +66,11 @@ abstract class Computer
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
+
 
     // renvoie le contenu de la propriété `components`
 
