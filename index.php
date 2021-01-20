@@ -13,6 +13,7 @@ use Computer\Tablet;
 use Device\Keyboard;
 use Device\Mouse;
 use Device\Speaker;
+use Validator\ComputerValidator;
 
 $cpu0 = new Cpu();
 $cpu0->setName('Ryzen5 3600');
@@ -48,7 +49,7 @@ $desktop0->setDevices([$mouse0, $keyboard0, $speaker0]);
 $desktop0->setName('PC Cdiscount');
 
 $laptop0 = new Laptop();
-$laptop0->setComponents([$cpu0, $mb0, $gpu0, $ram0]);
+$laptop0->setComponents([$cpu0, $gpu0, $ram0]);
 $laptop0->setDevices([$mouse0, $keyboard0, $speaker0]);
 $laptop0->setName('MSI P800 Gaming');
 
@@ -64,3 +65,11 @@ var_dump($desktop0);
 var_dump($laptop0);
 
 var_dump($tablet0);
+
+$validator = new ComputerValidator();
+
+var_dump($validator->validate($desktop0));
+
+var_dump($validator->validate($laptop0));
+
+var_dump($validator->validate($tablet0));
