@@ -1,6 +1,7 @@
 <?php
 
 use Component\GraphicCard;
+use Validator\ComputerValidator;
 
 include 'includes/autoload.php';
 
@@ -88,7 +89,7 @@ $name =
 ;
 $hp->setName($name);
 
-var_dump($hp);
+// var_dump($hp);
 
 // Laptop
 
@@ -105,7 +106,7 @@ $name =
 ;
 $mac->setName($name);
 
-var_dump($mac);
+// var_dump($mac);
 
 // Tablet
 
@@ -120,4 +121,10 @@ $name =
 ;
 $samsung->setName($name);
 
-var_dump($samsung);
+// var_dump($samsung);
+
+$computerValidator = new ComputerValidator();
+$validez = $computerValidator->validate($hp);
+$validez = $computerValidator->validate($mac);
+$validez = $computerValidator->validate($samsung);
+var_dump($validez);
