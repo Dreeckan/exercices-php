@@ -1,5 +1,5 @@
 <?php
-// Enregistre une fonction en tant qu'implémentation de __autoload()
+//Explique comment les classe vont etres chargés
 spl_autoload_register(function ($class) {
     require_once "classes/$class.php";
 });
