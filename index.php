@@ -12,6 +12,7 @@ use Computer\Tablet;
 use Device\Keyboard;
 use Device\Mouse;
 use Device\Speaker;
+use Validator\ComputerValidator;
 
 /*
  *
@@ -106,4 +107,19 @@ $c4->setName('Tablette');
 $c4->setComponents($components);
 $c4->setDevices($devices);
 
-var_dump($c, $c2, $c3, $c4);
+//var_dump($c, $c2, $c3, $c4);
+
+// On instancie la classe ComputerValidator
+$validator = new ComputerValidator();
+// On regarde si l'objet $c est valide
+$isValid = $validator->validate($c);
+var_dump($isValid);
+// On regarde si l'objet $c2 est valide
+$isValid = $validator->validate($c2);
+var_dump($isValid);
+// On regarde si l'objet $c3 est valide
+$isValid = $validator->validate($c3);
+var_dump($isValid);
+// On regarde si l'objet $c4 est valide
+$isValid = $validator->validate($c4);
+var_dump($isValid);
