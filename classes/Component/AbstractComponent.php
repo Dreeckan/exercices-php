@@ -2,7 +2,10 @@
 
 namespace Component;
 
-abstract class AbstractComponent
+use Interfaces\HasNameInterface;
+use Interfaces\HasBrandInterface;
+
+abstract class AbstractComponent implements HasNameInterface, HasBrandInterface
 {
     /** @var string */
     protected $name = '';
@@ -11,19 +14,19 @@ abstract class AbstractComponent
     protected $brand = '';
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      *
      * @return self
      */
-    public function setName(string $name): self
+    public function setName(?string $name): HasNameInterface
     {
         $this->name = $name;
 
@@ -31,19 +34,19 @@ abstract class AbstractComponent
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getBrand(): string
+    public function getBrand(): ?string
     {
         return $this->brand;
     }
 
     /**
-     * @param string $brand
+     * @param string|null $brand
      *
      * @return self
      */
-    public function setBrand(string $brand): self
+    public function setBrand(?string $brand): HasBrandInterface
     {
         $this->brand = $brand;
 
