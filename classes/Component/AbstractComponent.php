@@ -1,65 +1,37 @@
 <?php 
 namespace Component;
 
-use interfaces\HasNameInterface;
+use Interfaces\HasNameInterface;
+use Traits\HasBrandTrait;
+use Traits\HasNameTrait;
+use Interfaces\HasBrandInterface;
 
-abstract class AbstractComponent implements HasNameInterface {
+abstract class AbstractComponent implements HasNameInterface, HasBrandInterface {
 
-    /**
-     * @var string
-     */
-    protected $name;
+   use HasNameTrait;
+   use HasBrandTrait;
 
-    /**
-     *  @var string
-     */
-    protected $brand;
+//     /**
+//      * Get the value of brand
+//      *
+//      * @return  string
+//      */ 
+//     public function getBrand()
+//     {
+//         return $this->brand;
+//     }
 
-    /**
-     * Get the value of name
-     *
-     * @return  string
-     */ 
-    public function getName():?string
-    {
-        return $this->name;
-    }
+//     /**
+//      * Set the value of brand
+//      *
+//      * @param  string  $brand
+//      *
+//      * @return  self
+//      */ 
+//     public function setBrand(string $brand)
+//     {
+//         $this->brand = $brand;
 
-    /**
-     * Set the value of name
-     *
-     * @param  string  $name
-     *
-     * @return  self
-     */ 
-    public function setName(?string $name): HasNameInterface
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of brand
-     *
-     * @return  string
-     */ 
-    public function getBrand()
-    {
-        return $this->brand;
-    }
-
-    /**
-     * Set the value of brand
-     *
-     * @param  string  $brand
-     *
-     * @return  self
-     */ 
-    public function setBrand(string $brand)
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
+//         return $this;
+//     }
 }

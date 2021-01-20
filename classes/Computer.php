@@ -1,8 +1,12 @@
 <?php
 
 use interfaces\HasNameInterface;
+use Traits\HasNameTrait;
+
 
 abstract class Computer implements HasNameInterface {
+
+    use HasNameTrait;
 
     /**
      * @var array
@@ -14,10 +18,10 @@ abstract class Computer implements HasNameInterface {
      */
     protected $devices = [];
 
-    /**
-     * @var string
-     */
-    protected $name = ""; 
+    // /**
+    //  * @var string
+    //  */
+    // protected $name = ""; 
 
 public function getComponents()
 {
@@ -56,27 +60,27 @@ public function setComponents(array $c)
 
     
 
-    /**
-     * Get the value of name
-     *
-     * @return  string
-     */ 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
+    // /**
+    //  * Get the value of name
+    //  *
+    //  * @return  string
+    //  */ 
+    // public function getName(): ?string
+    // {
+    //     return $this->name;
+    // }
 
-    /**
-     * Set the value of name
-     *
-     * @param  string  $name
-     *
-     * @return  self
-     */ 
-    public function setName(?string $name): HasNameInterface
-    {
-        $this->name = $name;
+    // /**
+    //  * Set the value of name
+    //  *
+    //  * @param  string  $name
+    //  *
+    //  * @return  self
+    //  */ 
+    // public function setName(?string $name): HasNameInterface
+    // {
+    //     $this->name = $name;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 };

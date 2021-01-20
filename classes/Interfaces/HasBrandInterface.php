@@ -2,6 +2,7 @@
 
 namespace interfaces;
 
+
 interface HasBrandInterface
 {
     public function getBrand(): ?string;
