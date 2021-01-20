@@ -44,7 +44,7 @@ class ComputerValidator implements ValidatorInterface
                 $iKeyboard++;
             }
         }
-        if ($iCpu < 1 || $iMotherboard < 1 || $iRam < 1 || $iKeyboard < 1) {
+        if ($iCpu < 1 && $iMotherboard < 1 && $iRam < 1 && $iKeyboard < 1) {
             return false;
         } else {
             return true;

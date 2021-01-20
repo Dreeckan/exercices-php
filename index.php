@@ -84,3 +84,5 @@ $validator = new ComputerValidator;
 $validator->validate($msi);
 
 var_dump($validator->validate($msi));
+var_dump($validator->validate($macBook));
+var_dump($validator->validate($galaxyTab));
