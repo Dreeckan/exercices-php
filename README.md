@@ -10,6 +10,8 @@ Je vous conseille de créer une branche pour chaque exercice (une branche pour l
 
 ```php
 spl_autoload_register(function ($class) {
+    // Dé-commenter la ligne ci-dessous si vous utilisez un Mac avec MAMP
+    // $class = str_replace($class, '\\', '/');
     require_once "classes/$class.php";
 });
 ```
