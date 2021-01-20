@@ -2,7 +2,9 @@
 
 namespace Computer;
 
-abstract class Computer
+use Interfaces\HasNameInterface;
+
+abstract class Computer implements HasNameInterface
 {
     /**
      * @var array
@@ -37,13 +39,14 @@ abstract class Computer
         $this->devices = $d;
     }
 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName($n)
+    public function setName(?string $n): HasNameInterface
     {
         $this->name = $n;
+        return $this;
     }
 }

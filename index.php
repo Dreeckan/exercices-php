@@ -49,7 +49,7 @@ $mac = new Laptop();
 
 $mac->setComponents([$cpu, $motherBoard, $graphicCard, $ram]);
 $mac->setDevices([$keyboard, $mouse, $speaker]);
-$mac->setName([]);
+$mac->setName('test');
 
 var_dump($mac);
 
@@ -59,6 +59,6 @@ $files->setComponents(["processor",
                        "motherboard"
                        ]);
 $files->setDevices(["Windows"]);
-$files->setName(["MSI"]);
+$files->setName("MSI");
 
 var_dump($files);
