@@ -3,6 +3,7 @@
 use Component\Cpu;
 use Computer\Desktop;
 use Computer\Laptop;
+use Validator\ComputerValidator;
 
 include 'includes/autoload.php';
 
@@ -138,9 +139,10 @@ $Speaker,
 $acer -> setDevices($devices);
 
 
+$computerValidator = new ComputerValidator;
+$computerValidator -> validate($hp);
 
-var_dump($acer, $samsung, $hp);
-
+var_dump($computerValidator -> validate($hp));
 
 
 
