@@ -1,6 +1,8 @@
 <?php
 
-abstract class Computer
+use Interfaces\HasNameInterface;
+
+abstract class Computer implements HasNameInterface
 {
     /**
     * @var array
@@ -27,7 +29,7 @@ abstract class Computer
         return $this->devices;
     }
 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -42,8 +44,10 @@ abstract class Computer
         $this->devices = $devices;
     }
 
-    public function setName($name)
+    public function setName(?string $name): HasNameInterface
     {
         $this->name = $name;
+        
+        return $this;
     }
 }

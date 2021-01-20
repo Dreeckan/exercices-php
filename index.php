@@ -62,3 +62,5 @@ $tablet = new Tablet();
 $tablet->setComponents([$cg, $cpu, $ram]);
 $tablet->setDevices([$mouse, $keyboard, $speaker]);
 $tablet->setName('Kurnikova');
+
+var_dump($computer, $laptop, $tablet);
