@@ -63,12 +63,12 @@ class ComputerValidator implements ValidatorInterface {
             
         
         }
-        if ($carteGraphique < 2 || $ram == 1 || $cpu == 1 || $carteMere == 1 ) {
+        if ($carteGraphique < 2 && $ram == 1 && $cpu == 1 && $carteMere == 1 ) {
         return true;
         }else {
         return false;
         }
-        if ($keyboard < 2 || $mouse == 1 || $speaker == 1) {
+        if ($keyboard < 2 && $mouse == 1 && $speaker == 1) {
         return true;
         }else {
         return false;
