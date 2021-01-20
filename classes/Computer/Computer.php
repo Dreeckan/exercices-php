@@ -2,7 +2,7 @@
 namespace Computer;
 
 use Interfaces\HasNameInterface;
-use Interfaces\HasBrandInterface;
+use Traits\HasNameTrait;
 
 abstract class Computer implements HasNameInterface
 {
@@ -18,11 +18,7 @@ abstract class Computer implements HasNameInterface
 
     protected $devices;
 
-    /**
-     * @var string
-     */
-
-    protected $name;
+    use HasNameTrait;
 
     /**
      * Get the value of components
@@ -60,26 +56,6 @@ abstract class Computer implements HasNameInterface
     public function setDevices($devices)
     {
         $this->devices = $devices;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of name
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */
-    public function setName(?string $name): HasNameInterface
-    {
-        $this->name = $name;
 
         return $this;
     }
