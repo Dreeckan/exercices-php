@@ -5,6 +5,8 @@ use Traits\HasNameTrait;
 
 abstract class Computer implements HasNameInterface
 {
+    use HasNameTrait;
+
     /**
    * @var array
    */
@@ -51,5 +53,4 @@ abstract class Computer implements HasNameInterface
     {
         $this->devices = $devices;
     }
-    use HasNameTrait;
 }

@@ -7,6 +7,8 @@ use Traits\HasNameTrait;
 
 class AbstractDevice implements HasNameInterface, HasBrandInterface
 {
+    use HasNameTrait;
+
     /**
    * @var string
    */
@@ -30,5 +32,4 @@ class AbstractDevice implements HasNameInterface, HasBrandInterface
         $this->brand = $brand;
         return $this;
     }
-    use HasNameTrait;
 }

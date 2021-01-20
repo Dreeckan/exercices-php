@@ -18,6 +18,7 @@ use Computer\Tablet;
 use Devices\Keyboard;
 use Devices\Mouse;
 use Devices\Speaker;
+use Validator\ComputerValidator;
 
 /*
 Cette fonction nous permet d’enregistrer une ou plusieurs fonctions qui vont être mises
@@ -29,11 +30,11 @@ include "includes/autoload.php";
 
 
 $desktopOne = new Desktop(['desktop__component'], ['desktop__devices'], 'desktop__Name');
-var_dump($desktopOne);
+//var_dump($desktopOne);
 $laptopOne = new Laptop(['laptop__component'], ['laptop__devices'], 'laptop__Name');
-var_dump($laptopOne);
+//var_dump($laptopOne);
 $tabletOne = new Tablet(['tablet__component'], ['tablet__devices'], 'tablet__Name');
-var_dump($tabletOne);
+//var_dump($tabletOne);
 
 //add components0 (name, brand)
 $ram0 = new Ram('16 GB', 'Dell');
@@ -46,7 +47,8 @@ $clavier0 = new Keyboard('K280', 'Logitech');
 $son0 = new Speaker('Z333', 'Logitech');
 
 
-
 $laptoptwo = new Laptop([$souris0,$clavier0,$son0], [$ram0,$carteGraph0,$carteMere0,$cpu0], 'Asus');
-var_dump($laptoptwo);
-// promis j'ajouterais des exemple plus concret oO
+//var_dump($laptoptwo);
+
+$validator = new ComputerValidator();
+var_dump($validator->validate($laptoptwo));
