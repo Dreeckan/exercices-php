@@ -2,7 +2,9 @@
 
 namespace Component;
 
-abstract class AbstractComponent
+use Interfaces\HasNameInterface;
+
+abstract class AbstractComponent implements HasNameInterface
 {
 
     /**
@@ -14,14 +16,15 @@ abstract class AbstractComponent
      */
     protected $brand;
 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName($n)
+    public function setName($n): HasNameInterface
     {
         $this->name = $n;
+        return $this;
     }
 
     public function getBrand()
@@ -32,5 +35,6 @@ abstract class AbstractComponent
     public function setBrand($b)
     {
         $this->brand = $b;
+        return $this;
     }
 }

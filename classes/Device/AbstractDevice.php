@@ -2,7 +2,9 @@
 
 namespace Device;
 
-abstract class AbstractDevice
+use Interfaces\HasNameInterface;
+
+abstract class AbstractDevice implements HasNameInterface
 {
 
     /**
@@ -14,14 +16,16 @@ abstract class AbstractDevice
      */
     protected $brand;
 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function setName($n)
+    public function setName(?string $n): HasNameInterface
     {
         $this->name = $n;
+
+        return $this;
     }
 
     public function getBrand()
@@ -29,8 +33,9 @@ abstract class AbstractDevice
         return $this->brand;
     }
 
-    public function setBrand($b)
+    public function setBrand(?string $b)
     {
         $this->brand = $b;
+        return $this;
     }
 }
