@@ -4,74 +4,16 @@ namespace Component;
 
 use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
+use Traits\HasBrandTrait;
+use Traits\HasNameTrait;
 
 abstract class AbstractComponent implements HasNameInterface, HasBrandInterface
 {
-
-
     //NAME
-
-
-    /**
-    * @var string
-    */
-    protected $name;
-
-
-    /**
-     * Get the value of name
-     *
-     * @return  string
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @param  string  $name
-     *
-     * @return  self
-     */
-    public function setName(?string $name): HasNameInterface
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    use HasNameTrait;
     
 
     //BRAND
 
-    
-    /**
-    * @var string
-    */
-    protected $brand;
-
-    /**
-     * Get the value of brand
-     *
-     * @return  string
-     */
-    public function getBrand(): ?string
-    {
-        return $this->brand;
-    }
-
-    /**
-     * Set the value of brand
-     *
-     * @param  string  $brand
-     *
-     * @return  self
-     */
-    public function setBrand(?string $brand): HasBrandInterface
-    {
-        $this->brand = $brand;
-
-        return $this;
-    }
+    use HasBrandTrait;
 }
