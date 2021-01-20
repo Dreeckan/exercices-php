@@ -17,7 +17,7 @@ abstract class Computer implements HasNameInterface
 
     use HasNameTrait;
 
-    public function getComponent()
+    public function getComponents()
     {
         return $this->components;
     }
