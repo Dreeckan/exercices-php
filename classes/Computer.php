@@ -6,7 +6,7 @@ use Traits\HasNameTrait;
 abstract class Computer implements HasNameInterface
 {
     use HasNameTrait;
-    
+
     /**
     * @var array
     * */
@@ -17,7 +17,7 @@ abstract class Computer implements HasNameInterface
     * */
     protected $devices;
 
-    public function getComponent()
+    public function getComponents()
     {
         return $this->components;
     }

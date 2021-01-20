@@ -13,7 +13,9 @@ use Component\GraphicCard as GraphicCard;
 use Device\Mouse as Mouse;
 use Device\Keyboard as Keyboard;
 use Device\Speaker as Speaker;
+use Validator\ComputerValidator;
 
+$computerValidator = new ComputerValidator();
 
 // Components
 $cg = new GraphicCard();
@@ -47,20 +49,20 @@ $speaker->setName('Gloubi');
 $speaker->setBrand('Logitech');
 
 
-// Computers
+// Computer
 $computer = new Desktop();
 $computer->setComponents([$cg, $cpu, $ram]);
 $computer->setDevices([$mouse, $keyboard, $speaker]);
 $computer->setName('Ilianov');
 
 $laptop = new Laptop();
-$laptop->setComponents([$cg, $cpu, $ram]);
+$laptop->setComponents([$cg, $cpu, $ram, $cm]);
 $laptop->setDevices([$mouse, $keyboard, $speaker]);
 $laptop->setName('Ekaterina');
 
 $tablet = new Tablet();
-$tablet->setComponents([$cg, $cpu, $ram]);
+$tablet->setComponents([$cg, $cpu, $ram, $cm]);
 $tablet->setDevices([$mouse, $keyboard, $speaker]);
 $tablet->setName('Kurnikova');
 
-var_dump($computer, $laptop, $tablet);
+var_dump($computerValidator->validate($computer));
