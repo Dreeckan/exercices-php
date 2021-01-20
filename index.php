@@ -8,11 +8,16 @@ Vous pouvez directement le faire comme ça, sinon VSCode peut vous montrer une a
 ajouter un use Computer\Desktop et vous pourrez faire un new Desktop() directement
 */
 
+use Component\Cpu;
+use Component\GraphicCard;
+use Component\MotherBoard;
 use Component\Ram;
 use Computer\Desktop;
 use Computer\Laptop;
 use Computer\Tablet;
+use Devices\Keyboard;
 use Devices\Mouse;
+use Devices\Speaker;
 
 /*
 Cette fonction nous permet d’enregistrer une ou plusieurs fonctions qui vont être mises
@@ -30,9 +35,18 @@ var_dump($laptopOne);
 $tabletOne = new Tablet(['tablet__component'], ['tablet__devices'], 'tablet__Name');
 var_dump($tabletOne);
 
-$Razorless = new Mouse('Razorless', 'Razor');
-$Ramless = new Ram('Razorless', 'Razor');
+//add components0 (name, brand)
+$ram0 = new Ram('16 GB', 'Dell');
+$cpu0 = new Cpu('i7', 'Intel');
+$carteGraph0 = new GraphicCard('GTX 1650', 'MSI');
+$carteMere0 = new MotherBoard('B550', 'MSI');
+//add devices0 (name, brand)
+$souris0 = new Mouse('Razorless', 'Razor');
+$clavier0 = new Keyboard('K280', 'Logitech');
+$son0 = new Speaker('Z333', 'Logitech');
 
-$laptoptwo = new Laptop([$Razorless], [$Ramless], 'laptop__Razor');
+
+
+$laptoptwo = new Laptop([$souris0,$clavier0,$son0], [$ram0,$carteGraph0,$carteMere0,$cpu0], 'Asus');
 var_dump($laptoptwo);
 // promis j'ajouterais des exemple plus concret oO

@@ -1,6 +1,8 @@
 <?php
 
-abstract class Computer
+use Interfaces\HasNameInterface;
+
+abstract class Computer implements HasNameInterface
 {
     /**
    * @var array
@@ -17,7 +19,11 @@ abstract class Computer
    */
 
     protected $name;
-
+    /*
+    Les propriétés, méthodes ou constantes définies avec le mot clef protected
+     ne vont être accessibles que depuis l’intérieur de la classe qui les a définies
+      ainsi que depuis les classes qui en héritent ou la classe parente.
+    */
     public function __construct(
         $composents = [],
         $devices = [],
@@ -36,9 +42,9 @@ abstract class Computer
     {
         return $this->devices;
     }
-    public function getName()
+    public function getName(): ?string
     {
-        $this->name;
+        return  $this->name;
     }
     //SETTERS
     public function setComponents($composents)
@@ -49,8 +55,9 @@ abstract class Computer
     {
         $this->devices = $devices;
     }
-    public function setName($name)
+    public function setName(?string $name): HasNameInterface
     {
         $this->name = $name;
+        return $this;
     }
 }
