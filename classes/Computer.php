@@ -1,6 +1,7 @@
 <?php
 
 use Interfaces\HasNameInterface;
+use Traits\HasNameTrait;
 
 abstract class Computer implements HasNameInterface
 {
@@ -14,10 +15,7 @@ abstract class Computer implements HasNameInterface
      */
     protected $devices;
 
-    /**
-     * @var string
-     */
-    protected $name;
+    use HasNameTrait;
 
     public function getComponent()
     {
@@ -27,10 +25,6 @@ abstract class Computer implements HasNameInterface
     {
         return $this->devices;
     }
-    public function getName():?string
-    {
-        return $this->name;
-    }
 
     public function setComponents($components)
     {
@@ -39,10 +33,5 @@ abstract class Computer implements HasNameInterface
     public function setDevices($devices)
     {
         $this->devices = $devices;
-    }
-    public function setName(?string $name) : HasNameInterface
-    {
-        $this->name = $name;
-        return $this;
     }
 }
