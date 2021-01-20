@@ -1,7 +1,10 @@
 <?php
 namespace Device;
 
-class AbstractDevice
+use Interfaces\HasNameInterface;
+use Interfaces\HasBrandInterface;
+
+class AbstractDevice implements HasNameInterface, HasBrandInterface
 {
 
     /*
@@ -19,7 +22,7 @@ class AbstractDevice
     /**
      * Get the value of name
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -29,7 +32,7 @@ class AbstractDevice
      *
      * @return  self
      */
-    public function setName($name)
+    public function setName(?string $name): HasNameInterface
     {
         $this->name = $name;
 
@@ -39,7 +42,7 @@ class AbstractDevice
     /**
      * Get the value of brand
      */
-    public function getBrand()
+    public function getBrand(): ?string
     {
         return $this->brand;
     }
@@ -49,7 +52,7 @@ class AbstractDevice
      *
      * @return  self
      */
-    public function setBrand($brand)
+    public function setBrand(?string $brand): HasBrandInterface
     {
         $this->brand = $brand;
 
