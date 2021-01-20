@@ -54,7 +54,7 @@ public function validate(Computer $computer): bool {
         }
 
     }
-    if ($compteurMotherBoard =1 || $compteurRam =1 || $compteurCpu =1 || $compteurKeyboard = 1 || $compteurMouse = 1 || $compteurSpeaker = 1)
+    if ($compteurMotherBoard ==1 && $compteurRam ==1 && $compteurCpu ==1 && $compteurKeyboard == 1 && $compteurMouse == 1 && $compteurSpeaker == 1)
     {
         return true;
         
