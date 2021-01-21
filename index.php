@@ -10,6 +10,7 @@ use Computer\Tablet;
 use Device\Keyboard;
 use Device\Mouse;
 use Device\Speaker;
+use Validator\ComputerValidator;
 
 include'includes/autoload.php';
 
@@ -34,6 +35,11 @@ $CPU->setBrand('AMD');
 $MotherBoard = new MotherBoard;
 $MotherBoard->setName('B450 GAMING PLUS');
 $MotherBoard->setBrand('MSI');
+
+
+$MotherBoard2 = new MotherBoard;
+$MotherBoard2->setName('B550 PLUS ULTRA');
+$MotherBoard2->setBrand('MSI');
 
 $RAM = new RAM;
 $RAM->setName('LPX Vengeance 2x8GO 3000Mhz CAS 15');
@@ -65,16 +71,29 @@ $desktop = new Desktop;
 $desktop->setComponents([$CPU, $GPU, $MotherBoard, $RAM]);
 $desktop->setDevices([$keyboard, $mouse, $speaker]);
 $desktop->setName('MSI');
-var_dump($desktop);
+// var_dump($desktop);
 
 $laptop = new Laptop;
 $laptop->setComponents([$CPU, $GPU, $MotherBoard, $RAM]);
 $laptop->setDevices([$keyboard, $mouse, $speaker]);
 $laptop->setName('ASUS ROG');
-var_dump($laptop);
+// var_dump($laptop);
 
 $tablet = new Tablet;
-$tablet->setComponents([$CPU, $GPU, $MotherBoard, $RAM]);
+$tablet->setComponents([$CPU, $GPU, $MotherBoard, $MotherBoard2, $RAM]);
 $tablet->setDevices([$keyboard, $mouse, $speaker]);
 $tablet->setName('MSI');
-var_dump($tablet);
+// var_dump($tablet);
+
+$validatorDesktop = new ComputerValidator;
+$validatorDesktop->validate($desktop);
+
+$validatorLaptop = new ComputerValidator;
+$validatorLaptop->validate($laptop);
+
+$validatorTablet = new ComputerValidator;
+$validatorTablet->validate($tablet);
+
+var_dump($validatorDesktop);
+var_dump($validatorLaptop);
+var_dump($validatorTablet);
