@@ -4,4 +4,6 @@ namespace Computer;
 
 use Computer;
 
-class Tablet extends Computer{}
+class Tablet extends Computer
+{
+}

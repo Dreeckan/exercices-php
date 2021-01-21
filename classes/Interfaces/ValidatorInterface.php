@@ -1,6 +1,7 @@
 <?php
 
 namespace interfaces;
+
 use Computer;
 
 

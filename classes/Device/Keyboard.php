@@ -3,17 +3,18 @@
 namespace Device;
 
 
-class Keyboard extends AbstractDevice{
+class Keyboard extends AbstractDevice
+{
 
-    /**
-     * @var string
-     */
+     /**
+      * @var string
+      */
 
      protected $format = "";
 
      /**
       * Get the value of format
-      */ 
+      */
      public function getFormat()
      {
           return $this->format;
@@ -23,7 +24,7 @@ class Keyboard extends AbstractDevice{
       * Set the value of format
       *
       * @return  self
-      */ 
+      */
      public function setFormat($format)
      {
           $this->format = $format;
@@ -31,12 +32,10 @@ class Keyboard extends AbstractDevice{
           return $this;
      }
 
-     public function jsonSerialize() 
-{
-     $tab = parent::jsonSerialize();
-       $tab['format'] = $this->getFormat();
-       return $tab;
-  
- 
-}
+     public function jsonSerialize()
+     {
+          $tab = parent::jsonSerialize();
+          $tab['format'] = $this->getFormat();
+          return $tab;
+     }
 }

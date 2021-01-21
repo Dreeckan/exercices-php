@@ -5,7 +5,8 @@ namespace Component;
 
 
 
-class MotherBoard extends AbstractComponent{
+class MotherBoard extends AbstractComponent
+{
 
     /**
      * @var string
@@ -17,7 +18,7 @@ class MotherBoard extends AbstractComponent{
      * Get the value of chipset
      *
      * @return  string
-     */ 
+     */
     public function getChipset()
     {
         return $this->chipset;
@@ -29,19 +30,17 @@ class MotherBoard extends AbstractComponent{
      * @param  string  $chipset
      *
      * @return  self
-     */ 
+     */
     public function setChipset(string $chipset)
     {
         $this->chipset = $chipset;
 
         return $this;
     }
-    public function jsonSerialize() 
-{
-     $tab = parent::jsonSerialize();
-       $tab['chipset'] = $this->getChipset();
-       return $tab;
-  
- 
-}
+    public function jsonSerialize()
+    {
+        $tab = parent::jsonSerialize();
+        $tab['chipset'] = $this->getChipset();
+        return $tab;
+    }
 }

@@ -1,11 +1,12 @@
-<?php 
- namespace Traits;
+<?php
 
- use interfaces\HasbrandInterface;
- 
- trait HasBrandTrait
- {
-     /**
+namespace Traits;
+
+use interfaces\HasbrandInterface;
+
+trait HasBrandTrait
+{
+    /**
      *  @var string
      */
     protected $brand;
@@ -14,7 +15,7 @@
      * Get the value of brand
      *
      * @return  string
-     */ 
+     */
     public function getBrand(): ?string
     {
         return $this->brand;
@@ -26,12 +27,11 @@
      * @param  string  $brand
      *
      * @return  self
-     */ 
+     */
     public function setBrand(?string $brand): HasBrandInterface
     {
         $this->brand = $brand;
 
         return $this;
     }
-
- }
+}

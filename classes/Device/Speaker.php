@@ -3,7 +3,8 @@
 namespace Device;
 
 
-class Speaker extends AbstractDevice{
+class Speaker extends AbstractDevice
+{
 
     /**
      * @var float
@@ -14,7 +15,7 @@ class Speaker extends AbstractDevice{
      * Get the value of countSpeakers
      *
      * @return  float
-     */ 
+     */
     public function getCountSpeakers()
     {
         return $this->countSpeakers;
@@ -26,19 +27,17 @@ class Speaker extends AbstractDevice{
      * @param  float  $countSpeakers
      *
      * @return  self
-     */ 
+     */
     public function setCountSpeakers(float $countSpeakers)
     {
         $this->countSpeakers = $countSpeakers;
 
         return $this;
     }
-    public function jsonSerialize() 
-{
-     $tab = parent::jsonSerialize();
-       $tab['countSpeakers'] = $this->getCountSpeakers();
-       return $tab;
-  
- 
-}
+    public function jsonSerialize()
+    {
+        $tab = parent::jsonSerialize();
+        $tab['countSpeakers'] = $this->getCountSpeakers();
+        return $tab;
+    }
 }

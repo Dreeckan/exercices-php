@@ -1,11 +1,12 @@
-<?php 
+<?php
+
 namespace Traits;
 
 use interfaces\HasNameInterface;
 
 trait HasNameTrait
 {
-/**
+    /**
      * @var string
      */
     protected $name = "";
@@ -13,7 +14,7 @@ trait HasNameTrait
      * Get the value of name
      *
      * @return  string
-     */ 
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -25,7 +26,7 @@ trait HasNameTrait
      * @param  string  $name
      *
      * @return  self
-     */ 
+     */
     public function setName(?string $name): HasNameInterface
     {
         $this->name = $name;
@@ -33,9 +34,3 @@ trait HasNameTrait
         return $this;
     }
 }
-
-
-
-
-
-  

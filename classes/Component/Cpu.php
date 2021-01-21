@@ -18,7 +18,7 @@ class Cpu extends AbstractComponent
      * Get the value of frequency
      *
      * @return  float
-     */ 
+     */
     public function getFrequency()
     {
         return $this->frequency;
@@ -30,17 +30,17 @@ class Cpu extends AbstractComponent
      * @param  float  $frequency
      *
      * @return  self
-     */ 
+     */
     public function setFrequency(float $frequency)
     {
         $this->frequency = $frequency;
 
         return $this;
     }
-    public function jsonSerialize() 
+    public function jsonSerialize()
     {
         $tab = parent::jsonSerialize();
-       $tab['Jfrequency'] = $this->getFrequency();
-       return $tab;
+        $tab['Jfrequency'] = $this->getFrequency();
+        return $tab;
     }
 }
