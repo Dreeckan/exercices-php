@@ -34,29 +34,34 @@ class ComputerValidator implements ValidatorInterface
         // On parcourt les composants et selon le type, on incrémente une variable différente
         foreach ($components as $component) {
             // Ici, on se sert de instanceof pour vérifier si l'objet $component est une instance de l'un de nos types
-            if ($component instanceof Cpu) {
-                $countCpu++;// équivalent à $countCpu = $countCpu + 1;
-            } elseif ($component instanceof GraphicCard) {
-                $countGraphicCard++;
-            } elseif ($component instanceof MotherBoard) {
-                $countMotherBoard++;
-            } elseif ($component instanceof Ram) {
-                $countRam++;
-            } else {
-                $countErrors++;
+            // et qu'il est compatible avec le type d'ordinateur saisi
+            if ($component->isCompatibleWith(get_class($computer))) {
+                if ($component instanceof Cpu) {
+                    $countCpu++;// équivalent à $countCpu = $countCpu + 1;
+                } elseif ($component instanceof GraphicCard) {
+                    $countGraphicCard++;
+                } elseif ($component instanceof MotherBoard) {
+                    $countMotherBoard++;
+                } elseif ($component instanceof Ram) {
+                    $countRam++;
+                } else {
+                    $countErrors++;
+                }
             }
         }
 
         // On répète l'opération pour les périphériques
         foreach ($devices as $device) {
-            if ($device instanceof Keyboard) {
-                $countKeyboard++;
-            } elseif ($device instanceof Mouse) {
-                $countMouse++;
-            } elseif ($device instanceof Speaker) {
-                $countSpeaker++;
-            } else {
-                $countErrors++;
+            if ($device->isCompatibleWith(get_class($computer))) {
+                if ($device instanceof Keyboard) {
+                    $countKeyboard++;
+                } elseif ($device instanceof Mouse) {
+                    $countMouse++;
+                } elseif ($device instanceof Speaker) {
+                    $countSpeaker++;
+                } else {
+                    $countErrors++;
+                }
             }
         }
 

@@ -58,7 +58,7 @@ $keyboard->setName("ROG Strix Scope RX");
 $keyboard->setBrand("Asus");
 $keyboard->setFormat("azerty");
 $keyboard->setCompatibility([
-    Desktop::class,
+    Tablet::class,
     Laptop::class,
 ]);
 
@@ -78,7 +78,7 @@ $speaker->setName("S-150");
 $speaker->setBrand("Logitech");
 $speaker->setCountSpeakers(2.2);
 $speaker->setCompatibility([
-    Laptop::class,
+    Tablet::class,
 ]);
 
 
@@ -102,6 +102,13 @@ try {
 }
 
 try {
+    $desktop1->setComponents($motherBoard);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+
+try {
     $desktop1->setDevices($speaker);
 } catch (Exception $e) {
     echo $e->getMessage();
@@ -113,10 +120,24 @@ try {
     echo $e->getMessage();
 }
 
+try {
+    $desktop1->setDevices($keyboard);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
 
 var_dump($desktop1->getComponents());
 var_dump($desktop1->getDevices());
 var_dump($desktop1);
+
+// Validation du computer en fonction de la compatibilité et de la présence des components/devices requis
+
+$testValidationDesktop1 = new Validator\ComputerValidator();
+var_dump($testValidationDesktop1->validate($desktop1));
+
+
+/***************************** Anciens test - avant exo 7 *******************************/
 
 // $laptop1 = new Computer\Laptop();
 // $laptop1->setName("Macbook");
@@ -130,10 +151,4 @@ var_dump($desktop1);
 // $tablet1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
 // $tablet1->setDevices([$mouse, $keyboard, $speaker]);
 
-
-
-// $testValidationDesktop1 = new Validator\ComputerValidator();
-// var_dump($testValidationDesktop1->validate($desktop1));
-
-// echo json_encode($desktop1);
-// echo json_encode($cpu);
+/****************************************************************************************/

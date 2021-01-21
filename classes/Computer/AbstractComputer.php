@@ -22,7 +22,7 @@ abstract class AbstractComputer implements HasNameInterface, JsonSerializable
     protected $listComponents = [];
 
 
-    // ajoute un component et vérifie sa compatibilité, lance une exception si non compatible
+    // ajoute un component et vérifie sa compatibilité, lance une exception si non compatible et donc n'ajoute pas le component non valide
 
     /**
      * @var object
@@ -41,7 +41,7 @@ abstract class AbstractComputer implements HasNameInterface, JsonSerializable
         return $this;
     }
 
-    //  // ajoute un device et vérifie sa compatibilité, lance une exception si non compatible
+    // ajoute un device et vérifie sa compatibilité, lance une exception si non compatible et donc n'ajoute pas le device non valide
 
 
     /**
@@ -54,7 +54,7 @@ abstract class AbstractComputer implements HasNameInterface, JsonSerializable
     {
         $check = $device->isCompatibleWith(get_class($this));
         if (!$check) {
-            throw new Exception("Le périphérique ".$device->getName()." n'est pas compatible");
+            throw new Exception("Le périphérique ".$device->getName()." n'est pas compatible"."<br>");
         }
 
         $this->listDevices[get_class($device)] = $device;
