@@ -2,13 +2,17 @@
 
 namespace Computer;
 
+use Exception;
 use Interfaces\HasNameInterface;
+use Interfaces\HasCompatibilityInterface;
 use Traits\HasNameTrait;
 use JsonSerializable;
+use Traits\HasCompatibilityTrait;
 
-abstract class AbstractComputer implements HasNameInterface, JsonSerializable
+abstract class AbstractComputer implements HasNameInterface, HasCompatibilityInterface, JsonSerializable
 {
     use HasNameTrait;
+    use HasCompatibilityTrait;
 
     /**
      * @var array
@@ -31,6 +35,16 @@ abstract class AbstractComputer implements HasNameInterface, JsonSerializable
 
     public function setComponents($components)
     {
+        if (isset($compatibility)) {
+            foreach ($components as $itemCompatible) {
+                $check = $itemCompatible->isCompatibleWith(self::class);
+                if (!$check) {
+                    throw new Exception("Le composant n'est pas compatible");
+                }
+            }
+        }
+        
+
         return $this->components = $components;
     }
 
@@ -44,6 +58,13 @@ abstract class AbstractComputer implements HasNameInterface, JsonSerializable
 
     public function setDevices($devices)
     {
+            if (isset($devices->compatibility)) {
+                $check = $devices->isCompatibleWith(self::class);
+                if (!$check) {
+                    throw new Exception("Le composant n'est pas compatible");
+                }
+        }
+
         return $this->devices = $devices;
     }
 

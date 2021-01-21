@@ -2,6 +2,9 @@
 
 // permet aux classes d'être automatiquement chargées si elles ne sont pas encore définies
 
+use Computer\Desktop;
+use Computer\Laptop;
+
 require_once "includes/autoload.php";
 
 // instanciation des components
@@ -37,6 +40,11 @@ $mouse = new Device\Mouse();
 $mouse->setName("B100");
 $mouse->setBrand("Logitech");
 $mouse->setLeftHanded(false);
+$mouse->setCompatibility([
+    Tablet::class,
+    Laptop::class,
+]);
+
 
 $speaker = new Device\Speaker();
 $speaker->setName("S-150");
@@ -48,8 +56,20 @@ $speaker->setCountSpeakers(2.2);
 
 $desktop1 = new Computer\Desktop();
 $desktop1->setName("Asus");
-$desktop1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
-$desktop1->setDevices([$mouse, $keyboard, $speaker]);
+
+try {
+    $desktop1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+try {
+    $desktop1->setDevices([$mouse, $keyboard, $speaker]);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+
 
 
 $laptop1 = new Computer\Laptop();
@@ -68,8 +88,6 @@ $tablet1->setDevices([$mouse, $keyboard, $speaker]);
 
 // $testValidationDesktop1 = new Validator\ComputerValidator();
 // var_dump($testValidationDesktop1->validate($desktop1));
-echo json_encode($desktop1);
-echo json_encode($cpu);
 
-var_dump($cpu->jsonSerialize());
-var_dump($cpu);
+// echo json_encode($desktop1);
+// echo json_encode($cpu);
