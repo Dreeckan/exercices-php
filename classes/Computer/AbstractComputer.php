@@ -17,77 +17,72 @@ abstract class AbstractComputer implements HasNameInterface, HasCompatibilityInt
     /**
      * @var array
      */
-    protected $components;
+    protected $listDevices = [];
 
     /**
      * @var array
      */
-    protected $devices;
+    protected $listComponents = [];
 
 
     // met à jour le contenu de la propriété `components` à partir de la variable `$components`
 
     /**
-     * @var array
+     * @var object
      *
      * @return array
      */
 
-    public function setComponents($components)
+    public function setComponents($component)
     {
-        if (isset($compatibility)) {
-            foreach ($components as $itemCompatible) {
-                $check = $itemCompatible->isCompatibleWith(self::class);
-                if (!$check) {
-                    throw new Exception("Le composant n'est pas compatible");
-                }
+        if (isset($component->compatibility)) {
+            if (!$component->isCompatibleWith(self::class)) {
+                throw new Exception("Le composant n'est pas compatible");
             }
         }
-        
-
-        return $this->components = $components;
+        array_push($this->listComponents, $component);
+        return $this;
     }
 
     // met à jour le contenu de la propriété `devices` à partir de la variable `$devices`
 
     /**
-     * @var array
+     * @var object
      *
      * @return array
      */
 
-    public function setDevices($devices)
+    public function setDevices($device)
     {
-            if (isset($devices->compatibility)) {
-                $check = $devices->isCompatibleWith(self::class);
-                if (!$check) {
-                    throw new Exception("Le composant n'est pas compatible");
-                }
+        if (isset($device->compatibility)) {
+            if (!$device->isCompatibleWith(self::class)) {
+                throw new Exception("Le composant n'est pas compatible");
+            }
         }
-
-        return $this->devices = $devices;
+        $listDevices[get_class($device)] = $device;
+        return $this;
     }
 
 
-    // renvoie le contenu de la propriété `components`
+    // renvoie le contenu de la propriété `listComponents`
 
     /**
      * @return array
      */
     public function getComponents()
     {
-        return $this->components;
+        return $this->listComponents;
     }
 
 
-    // renvoie le contenu de la propriété `devices`
+    // renvoie le contenu de la propriété `listDevices`
 
     /**
      * @return array
      */
     public function getDevices()
     {
-        return $this->devices;
+        return $this->listDevices;
     }
 
     public function jsonSerialize(): array
