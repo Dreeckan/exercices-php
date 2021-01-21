@@ -113,13 +113,18 @@ $c4->setDevices($devices);
 $validator = new ComputerValidator();
 // On regarde si l'objet $c est valide
 $isValid = $validator->validate($c);
-var_dump($isValid);
+//var_dump($isValid);
 // On regarde si l'objet $c2 est valide
 $isValid = $validator->validate($c2);
-var_dump($isValid);
+//var_dump($isValid);
 // On regarde si l'objet $c3 est valide
 $isValid = $validator->validate($c3);
-var_dump($isValid);
+//var_dump($isValid);
 // On regarde si l'objet $c4 est valide
 $isValid = $validator->validate($c4);
-var_dump($isValid);
+//var_dump($isValid);
+
+echo json_encode($c);
+echo json_encode($c2);
+echo json_encode($c3);
+echo json_encode($c4);
