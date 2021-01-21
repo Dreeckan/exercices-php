@@ -21,14 +21,8 @@ class Speaker extends AbstractDevice
     }
     public function jsonSerialize()
     {
-        parent::jsonSerialize();
-
-        return [
-            'Speakers' => [
-                'name' => $this->name,
-                'brand' => $this->brand,
-                'countSpeakers' => $this->countSpeakers
-            ]
-        ];
+        $array = parent::jsonSerialize();
+        $array['countSpeakers'] = $this->countSpeakers;
+        return ['Speakers'=> $array];
     }
 }

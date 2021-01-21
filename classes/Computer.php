@@ -2,7 +2,7 @@
 
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
-use \JsonSerializable;
+use JsonSerializable;
 
 abstract class Computer implements HasNameInterface, JsonSerializable
 {

@@ -14,11 +14,9 @@ abstract class AbstractDevice implements HasNameInterface, HasBrandInterface, Js
     use HasBrandTrait;
     public function jsonSerialize()
     {
-        /*return [
-            'devices' => [
-                'name' => $this->name,
-                'brand' => $this->brand
-            ]
-        ];*/
+        return [
+            'name' => $this->name,
+            'brand' => $this->brand
+        ];
     }
 }

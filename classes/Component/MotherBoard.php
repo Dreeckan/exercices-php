@@ -21,14 +21,8 @@ class MotherBoard extends AbstractComponent
     }
     public function jsonSerialize()
     {
-        parent::jsonSerialize();
-
-        return [
-            'MotherBoard' => [
-                'name' => $this->name,
-                'brand' => $this->brand,
-                'chipset' => $this->chipset
-            ]
-        ];
+        $array = parent::jsonSerialize();
+        $array['chipset'] = $this->chipset;
+        return ['MotherBoard'=> $array];
     }
 }

@@ -21,14 +21,8 @@ class Mouse extends AbstractDevice
     }
     public function jsonSerialize()
     {
-        parent::jsonSerialize();
-
-        return [
-            'Mouse' => [
-                'name' => $this->name,
-                'brand' => $this->brand,
-                'leftHanded' => $this->leftHanded
-            ]
-        ];
+        $array = parent::jsonSerialize();
+        $array['leftHanded'] = $this->leftHanded;
+        return ['Mouse'=> $array];
     }
 }

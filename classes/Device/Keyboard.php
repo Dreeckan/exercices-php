@@ -21,14 +21,8 @@ class Keyboard extends AbstractDevice
     }
     public function jsonSerialize()
     {
-        parent::jsonSerialize();
-
-        return [
-            'Keyboard' => [
-                'name' => $this->name,
-                'brand' => $this->brand,
-                'format' => $this->format
-            ]
-        ];
+        $array = parent::jsonSerialize();
+        $array['format'] = $this->format;
+        return ['Keyboard'=> $array];
     }
 }

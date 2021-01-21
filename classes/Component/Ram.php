@@ -21,14 +21,8 @@ class Ram extends AbstractComponent
     }
     public function jsonSerialize()
     {
-        parent::jsonSerialize();
-
-        return [
-            'Ram' => [
-                'name' => $this->name,
-                'brand' => $this->brand,
-                'size' => $this->size
-            ]
-        ];
+        $array = parent::jsonSerialize();
+        $array['size'] = $this->size;
+        return ['Ram'=> $array];
     }
 }
