@@ -40,6 +40,7 @@ $motherBoard-> setName('GTX580');
     $graphicCard -> setBrand ('Nvidia');
     $ram -> setName('1458KR');
     $ram -> setBrand('Microsoft');
+    $motherBoard-> setChipset ('464855');
 
     // On instancie des objets périphériques pour chaque ordi
 $keyBoard = new Device\Keyboard();
@@ -132,7 +133,7 @@ $acer -> setComponents($components);
 
 //Périphériques de l'objet
 $devices = [
-  $keyBoard,
+$keyBoard,
 $Mouse ,
 $Speaker,
 ];
@@ -142,7 +143,11 @@ $acer -> setDevices($devices);
 $computerValidator = new ComputerValidator;
 $computerValidator -> validate($hp);
 
-var_dump($computerValidator -> validate($hp));
+var_dump($computerValidator -> validate($acer));
+
+echo json_encode($acer);
+echo json_encode($hp);
+echo json_encode($samsung);
 
 
 

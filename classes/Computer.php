@@ -4,7 +4,7 @@ use interfaces\HasNameInterface;
 use Traits\HasNameTrait;
 
 
-abstract class Computer implements HasNameInterface {
+abstract class Computer implements HasNameInterface, JsonSerializable {
 
     use HasNameTrait;
 
@@ -57,4 +57,14 @@ public function setComponents(array $c)
 
         return $this;
     }
-};
+public function jsonSerialize() 
+{
+  return [
+      "Jcomponent"=> $this->components,
+      "Jdevices"=> $this->devices,
+      "Jname" => $this->name,
+  ];
+    
+}
+
+}

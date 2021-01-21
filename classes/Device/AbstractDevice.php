@@ -3,10 +3,11 @@ namespace Device;
 
 use interfaces\HasBrandInterface;
 use interfaces\HasNameInterface;
+use JsonSerializable;
 use Traits\HasNameTrait;
 use Traits\HasBrandTrait;
 
-abstract class AbstractDevice implements HasBrandInterface, HasNameInterface {
+abstract class AbstractDevice implements HasBrandInterface, HasNameInterface, JsonSerializable  {
  use HasNameTrait; 
  use HasBrandTrait;
     // /**
@@ -66,4 +67,12 @@ abstract class AbstractDevice implements HasBrandInterface, HasNameInterface {
 
     //     return $this;
     // }
+    public function jsonSerialize() 
+    {
+        return [
+        "Jbrand"=> $this->brand,
+        "Jname" => $this->name,
+        ];
+        
+    }
 }

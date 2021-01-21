@@ -5,8 +5,9 @@ use Interfaces\HasNameInterface;
 use Traits\HasBrandTrait;
 use Traits\HasNameTrait;
 use Interfaces\HasBrandInterface;
+use JsonSerializable;
 
-abstract class AbstractComponent implements HasNameInterface, HasBrandInterface {
+abstract class AbstractComponent implements HasNameInterface, HasBrandInterface, JsonSerializable {
 
    use HasNameTrait;
    use HasBrandTrait;
@@ -34,4 +35,12 @@ abstract class AbstractComponent implements HasNameInterface, HasBrandInterface 
 
 //         return $this;
 //     }
+public function jsonSerialize() 
+    {
+        return [
+        "Jbrand"=> $this->brand,
+        "Jname" => $this->name,
+        ];
+        
+    }
 }
