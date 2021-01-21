@@ -7,9 +7,9 @@ use Component\GraphicCard;
 use Component\MotherBoard;
 use Component\Ram;
 use Computer;
-use Devices\Keyboard;
-use Devices\Mouse;
-use Devices\Speaker;
+use Device\Keyboard;
+use Device\Mouse;
+use Device\Speaker;
 use Interfaces\ValidatorInterface;
 
 class ComputerValidator implements ValidatorInterface
@@ -52,12 +52,12 @@ class ComputerValidator implements ValidatorInterface
             }
         }
         var_dump($devices, $components);
-        /* if ($countMb === 1 && $countCpu === 1 && ($countGraphC === 1 ||  $countGraphC === 0) && $countRam === 1 && $countKeyB === 1 && $countMouse === 1 && ($countSpeaker === 1 || $countSpeaker === 0)) {
-             return true;
-         }*/
-        if ($countMb != 1 || $countCpu != 1 || $countGraphC > 1 || $countRam != 1 || $countKeyB != 1 || $countMouse != 1 || $countSpeaker > 1) {
-            return false;
+        if ($countMb === 1 && $countCpu === 1 && ($countGraphC === 1 ||  $countGraphC === 0) && $countRam === 1 && $countKeyB === 1 && $countMouse === 1 && ($countSpeaker === 1 || $countSpeaker === 0)) {
+            return true;
         }
+        /*if ($countMb != 1 || $countCpu != 1 || $countGraphC > 1 || $countRam != 1 || $countKeyB != 1 || $countMouse != 1 || $countSpeaker > 1) {
+            return false;
+        }*/
 
         return true;
     }

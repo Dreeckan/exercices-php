@@ -1,5 +1,5 @@
 <?php
-namespace Devices;
+namespace Device;
 
 class Speaker extends AbstractDevice
 {

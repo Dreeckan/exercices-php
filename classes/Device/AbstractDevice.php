@@ -1,13 +1,13 @@
 <?php
 
-namespace Component;
+namespace Device;
 
 use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
 use Traits\HasBrandTrait;
 use Traits\HasNameTrait;
 
-abstract class AbstractComponent implements HasNameInterface, HasBrandInterface
+abstract class AbstractDevice implements HasNameInterface, HasBrandInterface
 {
     use HasNameTrait;
     use HasBrandTrait;

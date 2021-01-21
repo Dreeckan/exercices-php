@@ -6,51 +6,31 @@ use Traits\HasNameTrait;
 abstract class Computer implements HasNameInterface
 {
     use HasNameTrait;
+    
+    /** * @var array */
+    protected $devices = [];
 
-    /**
-   * @var array
-   */
+    /** * @var array */
+    protected $components = [];
 
-    protected $composents;
-    /**
-   * @var array
-   */
-
-    protected $devices;
-    /**
-   * @var string
-   */
-
-    /*
-    Les propriétés, méthodes ou constantes définies avec le mot clef protected
-     ne vont être accessibles que depuis l’intérieur de la classe qui les a définies
-      ainsi que depuis les classes qui en héritent ou la classe parente.
-    */
-    public function __construct(
-        $composents = [],
-        $devices = [],
-        $name = 'default'
-    ) {
-        $this->composents = $composents;
-        $this->devices = $devices;
-        $this->name = $name;
-    }
-    //GETTERS
-    public function getComponents()
+    //GETTERS renvoie le contenu de la propriété
+    public function getComponents(): array
     {
-        return  $this->composents;
+        return $this->components;
     }
-    public function getDevices()
+    public function getDevices(): array
     {
         return $this->devices;
     }
-    //SETTERS
-    public function setComponents($composents)
+   
+    //SETTERS définir / modifier / mettre à jour la propriété
+    public function setComponents($components)
     {
-        $this->composents = $composents;
+        return $this->components = $components;
     }
+
     public function setDevices($devices)
     {
-        $this->devices = $devices;
+        return $this->devices = $devices;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Devices;
+namespace Device;
 
 class Mouse extends AbstractDevice
 {
