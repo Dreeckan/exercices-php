@@ -1,5 +1,6 @@
 <?php
 
+use Component\Cpu;
 use Component\GraphicCard;
 use Validator\ComputerValidator;
 
@@ -130,3 +131,7 @@ $validez = $computerValidator->validate($mac);
 var_dump($validez);
 $validez = $computerValidator->validate($samsung);
 var_dump($validez);
+var_dump(json_encode($samsung));
+var_dump(json_encode($hp));
+var_dump(json_encode($mac));
+
