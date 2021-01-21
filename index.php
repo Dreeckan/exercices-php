@@ -126,12 +126,12 @@ $samsung->setName($name);
 
 $computerValidator = new ComputerValidator();
 $validez = $computerValidator->validate($hp);
-var_dump($validez);
-$validez = $computerValidator->validate($mac);
-var_dump($validez);
-$validez = $computerValidator->validate($samsung);
-var_dump($validez);
-var_dump(json_encode($samsung));
-var_dump(json_encode($hp));
-var_dump(json_encode($mac));
+// var_dump($validez);
+// $validez = $computerValidator->validate($mac);
+// var_dump($validez);
+// $validez = $computerValidator->validate($samsung);
+// var_dump($validez);
+echo json_encode($samsung);
+echo json_encode($hp);
+echo json_encode($mac);
 
