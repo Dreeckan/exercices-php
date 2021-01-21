@@ -6,6 +6,7 @@ use Component\MotherBoard;
 use Component\Ram;
 use Computer\Desktop;
 use Computer\Laptop;
+use Computer\Tablet;
 use Device\Keyboard;
 use Device\Mouse;
 use Device\Speaker;
@@ -56,6 +57,9 @@ $ram = new Ram();
 $ram->setName("Vengeance LPX Black DDR4");
 $ram->setBrand("Corsair");
 $ram->setSize("16");
+$ram->setCompatibility([Desktop::class,Laptop::class]);
+//$ram->isCompatibleWith(Tablet::class);
+var_dump($ram->isCompatibleWith(Tablet::class));
 
 
 
@@ -89,3 +93,5 @@ $desktop3JsonData = json_encode($desktop3);
 
 
 var_dump($desktop3JsonData);
+echo '___________________PARTIE 7_________________';
+var_dump($ram->isCompatibleWith(Laptop::class));

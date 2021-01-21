@@ -160,8 +160,8 @@ spl_autoload_register(function ($class) {
 ## 7. Compatibilité des composants et périphériques
 
 - Pour l'heure, nos composants et nos périphériques peuvent être installés dans n'importe quel ordinateur. Dans les faits, il va falloir enregistrer dans nos composants et nos périphériques avec quel(s) type(s) d'ordinateur ils sont compatibles.
-  - [ ] Ajouter une propriété `$compatibility` dans `AbstractComponent` et `AbstractDevice` et ses méthodes. Pour ça, créer un trait (je vous laisse voir le nom ET le rangement :P ).
-  - [ ] Ajouter également dans ce trait une méthode `isCompatibleWith($className)` qui va prendre en paramètre un FQCN (Fully Qualified Class Name) (renvoyé par exemple par `Laptop::class`) et va renvoyer si l'élément est compatible avec ce type d'objet.
+  - [x] Ajouter une propriété `$compatibility` dans `AbstractComponent` et `AbstractDevice` et ses méthodes. Pour ça, créer un trait (je vous laisse voir le nom ET le rangement :P ).
+  - [x] Ajouter également dans ce trait une méthode `isCompatibleWith($className)` qui va prendre en paramètre un FQCN (Fully Qualified Class Name) (renvoyé par exemple par `Laptop::class`) et va renvoyer si l'élément est compatible avec ce type d'objet.
   - [ ] Modifier le comportement de `setComponents()` et `setDevices()`. On va vouloir ajouter les éléments un par un et vérifier au fur et à mesure que l'élément ajouté est bien compatible avec le type d'ordinateur choisi. Si la pièce n'est pas compatible, il va falloir [lever une exception](https://www.php.net/manual/fr/language.exceptions.php) (une erreur)
   - [ ] Utiliser ces éléments dans `index.php` :
     - [ ] Ajouter plusieurs pièces dans `index.php`, compatibles avec différents types d'ordinateur (mais pas tous ;)). Les ajouter à des ordinateurs.

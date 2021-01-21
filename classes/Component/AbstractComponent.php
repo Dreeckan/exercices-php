@@ -7,12 +7,16 @@ use Interfaces\HasNameInterface;
 use JsonSerializable;
 
 use Traits\HasBrandTrait;
+use Traits\HasCompatibilityTrait;
 use Traits\HasNameTrait;
 
 abstract class AbstractComponent implements HasNameInterface, HasBrandInterface, JsonSerializable
 {
     use HasNameTrait;
     use HasBrandTrait;
+    use HasCompatibilityTrait;
+
+
     public function jsonSerialize()
     {
         return [
