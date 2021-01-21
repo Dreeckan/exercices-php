@@ -39,8 +39,6 @@ class ComputerValidator implements ValidatorInterface
         }
         if ($motherBoard < 1 || $cpu < 1 || $ram < 1 || $graphicCard < 1) {
             return false;
-        } else {
-            return true;
         }
 
         foreach ($computer->getDevices() as $component) {

@@ -4,8 +4,9 @@ namespace Computer;
 
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
+use JsonSerializable;
 
-abstract class Computer implements HasNameInterface
+abstract class Computer implements HasNameInterface, JsonSerializable
 {
     use HasNameTrait;
     /**
@@ -39,6 +40,14 @@ abstract class Computer implements HasNameInterface
     public function setDevices($d)
     {
         $this->devices = $d;
+    }
+    public function jsonSerialize()
+    {
+        return[
+        'devices'=>$this->devices,
+        'components'=>$this->components,
+        'name'=>$this->name
+    ];
     }
 
     // On déplace le code dans le trait

@@ -68,3 +68,6 @@ $files->setName("MSI");
 $computerValidator = new ComputerValidator();
 $validate = $computerValidator->validate($mac);
 var_dump($validate);
+
+echo(json_encode($mac));
+echo(json_encode($files));
