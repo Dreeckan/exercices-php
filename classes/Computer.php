@@ -2,10 +2,12 @@
 
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
+use \JsonSerializable;
 
-abstract class Computer implements HasNameInterface
+abstract class Computer implements HasNameInterface, JsonSerializable
 {
     use HasNameTrait;
+    
     
     /** * @var array */
     protected $devices = [];
@@ -32,5 +34,15 @@ abstract class Computer implements HasNameInterface
     public function setDevices($devices)
     {
         return $this->devices = $devices;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'computer' => [
+                'components' => $this->components,
+                'devices' => $this->devices
+            ]
+        ];
     }
 }
