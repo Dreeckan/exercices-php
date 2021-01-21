@@ -6,7 +6,7 @@ namespace Component;
 class Cpu extends AbstractComponent
 {
     /**
-     * @var float
+     * @var string
      */
     protected $frequence;
 
@@ -15,7 +15,7 @@ class Cpu extends AbstractComponent
         return $this->frequence;
     }
 
-    public function setFrequence($f)
+    public function setFrequence(string $f)
     {
         $this->frequence = $f;
     }

@@ -11,7 +11,6 @@ use Computer\Laptop;
 use Computer\Tablet;
 use Device\Keyboard;
 use Validator\ComputerValidator;
-use Classes\Computer;
 
 spl_autoload_register(function ($class) {
     require_once "classes/$class.php";
@@ -29,30 +28,50 @@ $keyboard = new Keyboard;
 $keyboard->setBrand("Logitech");
 $keyboard->setName("G10");
 $keyboard->setFormat("azerty");
+$keyboard->setCompatibility([
+    Laptop::class,
+    Desktop::class
+]);
 
 //configuer les parametres de l'objet motherboard
 $motherboard = new Motherboard;
 $motherboard->setChipset("AMD");
 $motherboard->setBrand("Asus");
 $motherboard->setName("b450");
+$motherboard->setCompatibility([
+    Desktop::class
+]);
 
 //configuer les parametres de l'objet cpu
 $cpu = new Cpu;
 $cpu->setFrequence("4.2Ghz");
 $cpu->setBrand("AMD");
 $cpu->setName("Ryzen 7");
+$cpu->setCompatibility([
+    Laptop::class,
+    Desktop::class,
+    Tablet::class
+]);
+
 
 //configuer les parametres de l'objet graphicard
 $graphiCard = new GraphiCard;
 $graphiCard->setVideoRam("8go");
 $graphiCard->setBrand("MSI");
 $graphiCard->setName("rx5700xt");
+$graphiCard->setCompatibility([
+    Desktop::class
+]);
 
 //configuer les parametres de l'objet ram
 $ram = new Ram;
 $ram->setMemoire("4x4go");
 $ram->setBrand("Corsair");
 $ram->setName("RGB");
+$ram->setCompatibility([
+    Desktop::class,
+    Desktop::class
+]);
 
 //Cette variable est un tableau qui contient tous les composants.
 $composant = [

@@ -6,7 +6,7 @@ namespace Component;
 class GraphiCard extends AbstractComponent
 {
     /**
-     * @var int
+     * @var string
      */
     protected $videoRam;
 
@@ -15,7 +15,7 @@ class GraphiCard extends AbstractComponent
         return $this->videoRam;
     }
 
-    public function setVideoRam($vr)
+    public function setVideoRam(string $vr)
     {
         $this->videoRam = $vr;
     }

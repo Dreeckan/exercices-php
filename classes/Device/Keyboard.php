@@ -5,16 +5,19 @@ namespace Device;
 
 class Keyboard extends AbstractDevice
 {
+    /**
+     * @var string
+     */
     protected $format;
 
     public function getFormat()
     {
-        return $this->frequence;
+        return $this->format;
     }
 
-    public function setFormat($fo)
+    public function setFormat(string $fo)
     {
-        $this->frequence = $fo;
+        $this->format = $fo;
     }
 
     public function jsonSerialize()
