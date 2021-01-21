@@ -4,7 +4,7 @@ namespace Device;
 
 use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
-use Interfaces\JsonSerializable;
+use JsonSerializable;
 use Traits\HasNameTrait;
 use Traits\HasBrandTrait;
 

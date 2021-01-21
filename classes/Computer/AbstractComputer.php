@@ -4,7 +4,7 @@ namespace Computer;
 
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
-use Interfaces\JsonSerializable;
+use JsonSerializable;
 
 abstract class AbstractComputer implements HasNameInterface, JsonSerializable
 {
