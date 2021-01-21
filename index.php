@@ -88,6 +88,7 @@ $speaker->setCompatibility([
 $desktop1 = new Computer\Desktop();
 $desktop1->setName("Asus");
 
+// test lors d'ajout de components et devices
 try {
     $desktop1->setComponents($cpu);
 } catch (Exception $e) {
@@ -100,14 +101,22 @@ try {
     echo $e->getMessage();
 }
 
-
 try {
     $desktop1->setDevices($speaker);
 } catch (Exception $e) {
     echo $e->getMessage();
 }
 
-echo json_encode($desktop1->getComponents());
+try {
+    $desktop1->setDevices($mouse);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+
+
+var_dump($desktop1->getComponents());
+var_dump($desktop1->getDevices());
+var_dump($desktop1);
 
 // $laptop1 = new Computer\Laptop();
 // $laptop1->setName("Macbook");

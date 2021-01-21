@@ -4,15 +4,12 @@ namespace Computer;
 
 use Exception;
 use Interfaces\HasNameInterface;
-use Interfaces\HasCompatibilityInterface;
 use Traits\HasNameTrait;
 use JsonSerializable;
-use Traits\HasCompatibilityTrait;
 
-abstract class AbstractComputer implements HasNameInterface, HasCompatibilityInterface, JsonSerializable
+abstract class AbstractComputer implements HasNameInterface, JsonSerializable
 {
     use HasNameTrait;
-    use HasCompatibilityTrait;
 
     /**
      * @var array
@@ -25,7 +22,7 @@ abstract class AbstractComputer implements HasNameInterface, HasCompatibilityInt
     protected $listComponents = [];
 
 
-    // met à jour le contenu de la propriété `components` à partir de la variable `$components`
+    // ajoute un component et vérifie sa compatibilité, lance une exception si non compatible
 
     /**
      * @var object
@@ -35,16 +32,17 @@ abstract class AbstractComputer implements HasNameInterface, HasCompatibilityInt
 
     public function setComponents($component)
     {
-        if (isset($component->compatibility)) {
-            if (!$component->isCompatibleWith(self::class)) {
-                throw new Exception("Le composant n'est pas compatible");
-            }
+        $check = $component->isCompatibleWith(get_class($this));
+        if (!$check) {
+            throw new Exception("Le composant ".$component->getName()." n'est pas compatible"."<br>");
         }
-        array_push($this->listComponents, $component);
+
+        $this->listComponents[get_class($component)] = $component;
         return $this;
     }
 
-    // met à jour le contenu de la propriété `devices` à partir de la variable `$devices`
+    //  // ajoute un device et vérifie sa compatibilité, lance une exception si non compatible
+
 
     /**
      * @var object
@@ -54,12 +52,12 @@ abstract class AbstractComputer implements HasNameInterface, HasCompatibilityInt
 
     public function setDevices($device)
     {
-        if (isset($device->compatibility)) {
-            if (!$device->isCompatibleWith(self::class)) {
-                throw new Exception("Le composant n'est pas compatible");
-            }
+        $check = $device->isCompatibleWith(get_class($this));
+        if (!$check) {
+            throw new Exception("Le périphérique ".$device->getName()." n'est pas compatible");
         }
-        $listDevices[get_class($device)] = $device;
+
+        $this->listDevices[get_class($device)] = $device;
         return $this;
     }
 
