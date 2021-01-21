@@ -4,8 +4,9 @@ namespace Computer;
 
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
+use Interfaces\JsonSerializable;
 
-abstract class AbstractComputer implements HasNameInterface
+abstract class AbstractComputer implements HasNameInterface, JsonSerializable
 {
     use HasNameTrait;
 
@@ -66,5 +67,14 @@ abstract class AbstractComputer implements HasNameInterface
     public function getDevices()
     {
         return $this->devices;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            "name" => $this->getName(),
+            "components" => $this->getComponents(),
+            "devices" => $this->getDevices()
+        ];
     }
 }
