@@ -11,6 +11,7 @@ use Computer\Laptop;
 use Computer\Tablet;
 use Device\Keyboard;
 use Validator\ComputerValidator;
+use Classes\Computer;
 
 spl_autoload_register(function ($class) {
     require_once "classes/$class.php";
@@ -27,6 +28,7 @@ spl_autoload_register(function ($class) {
 $keyboard = new Keyboard;
 $keyboard->setBrand("Logitech");
 $keyboard->setName("G10");
+$keyboard->setFormat("azerty");
 
 //configuer les parametres de l'objet motherboard
 $motherboard = new Motherboard;
@@ -67,22 +69,22 @@ $peripherique = [
 
 $msi = new Desktop;
 $msi->setComponents($composant);
-$msi->setDevices($keyboard);
+$msi->setDevices($peripherique);
 $msi->setName("Msi RGB");
 
 $macBook = new Laptop;
 $macBook->setComponents($composant);
-$macBook->setDevices($keyboard);
+$macBook->setDevices($peripherique);
 $macBook->setName("Mac Book pro");
 
 $galaxyTab = new Tablet;
 $galaxyTab->setComponents($composant);
-$galaxyTab->setDevices($keyboard);
+$galaxyTab->setDevices($peripherique);
 $galaxyTab->setName("Galaxy Tab 8");
 
 $validator = new ComputerValidator;
 $validator->validate($msi);
 
-var_dump($validator->validate($msi));
-var_dump($validator->validate($macBook));
-var_dump($validator->validate($galaxyTab));
+echo json_encode($msi);
+echo json_encode($macBook);
+echo json_encode($galaxyTab);
