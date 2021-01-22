@@ -18,7 +18,11 @@ class GraphicCard extends AbstractComponent
         $this->rtx = $rtx;
         return $this;
     }
-    public function jsonSerialize()
+    /**
+     * @return array
+     */
+
+    public function jsonSerialize(): array
     {
         $array =  parent::jsonSerialize();
         $array['rtx'] = $this->rtx;

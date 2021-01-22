@@ -1,4 +1,5 @@
 <?php
+use Exception;
 
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
@@ -7,6 +8,8 @@ use JsonSerializable;
 abstract class Computer implements HasNameInterface, JsonSerializable
 {
     use HasNameTrait;
+  
+
     
     
     /** * @var array */
@@ -26,14 +29,20 @@ abstract class Computer implements HasNameInterface, JsonSerializable
     }
    
     //SETTERS définir / modifier / mettre à jour la propriété
-    public function setComponents($components)
+    
+
+    public function setComponents($component)
     {
-        return $this->components = $components;
+        if (!$component->isCompatibleWith(get_class($this))) {
+            throw new Exception("ce composant n'est pas compatible");
+        }
+
+        return $this->components = $component;
     }
 
-    public function setDevices($devices)
+    public function setDevices($device)
     {
-        return $this->devices = $devices;
+        return $this->devices = $device;
     }
 
     public function jsonSerialize()

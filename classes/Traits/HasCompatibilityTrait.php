@@ -2,6 +2,8 @@
 
 namespace Traits;
 
+use Interfaces\HasCompatibilityInterface;
+
 trait HasCompatibilityTrait
 {
     /**
@@ -13,7 +15,7 @@ trait HasCompatibilityTrait
     /**
      * @return array
      */
-    public function getCompatibility()
+    public function getCompatibility(): array
     {
         return $this->compatibility;
     }
@@ -22,7 +24,7 @@ trait HasCompatibilityTrait
      * @return $this
      */
 
-    public function setCompatibility(array $compatibility)
+    public function setCompatibility(array $compatibility):HasCompatibilityInterface
     {
         $this->compatibility = $compatibility;
         return $this;

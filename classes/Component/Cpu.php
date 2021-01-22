@@ -19,7 +19,11 @@ class Cpu extends AbstractComponent
         return $this;
     }
 
-    public function jsonSerialize()
+    /**
+     * @return array
+     */
+
+    public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
         $array["frequency"] = $this->frequency;

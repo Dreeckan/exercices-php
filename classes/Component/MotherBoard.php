@@ -19,7 +19,11 @@ class MotherBoard extends AbstractComponent
         $this->chipset = $chipset;
         return $this;
     }
-    public function jsonSerialize()
+    /**
+     * @return array
+     */
+
+    public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
         $array['chipset'] = $this->chipset;
