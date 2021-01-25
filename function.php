@@ -59,6 +59,8 @@ Dans tous ces extraits de code se cachent plusieurs fautes, erreurs ou mauvaises
             echo $_GET['variable'];
         }
     }
+
+    //peut etre que $parametre = 2 en amont de la fonction aurais été mieux ? ou simplement 2 :|
     function uneFonction(int $parametre): int
     {
         return $parametre * 2;
