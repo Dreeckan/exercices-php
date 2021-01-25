@@ -1,8 +1,6 @@
 <?php
 session_start();
-?>
 
-<?php
 $stock = $_GET["stock"];
 
 if (empty($_GET["stock"])) {
