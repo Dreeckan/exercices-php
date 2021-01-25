@@ -29,7 +29,7 @@ $shoes = [
 ];
 function addReduc($item, $reduc)
 {
-    return $item. ' € puis '.number_format($item - $reduc, 2, ',', ' ').' € avec la  reduction de '.$reduc. ' €';
+    return $item. ' € puis '.number_format($item - ($item * ($reduc / 100)), 2, ',', ' ').' € avec la  reduction de '.$reduc. ' €';
 }
 ?>
 
@@ -50,7 +50,7 @@ function addReduc($item, $reduc)
        }
        echo'<tr '.$color.'>
        <td>'.$shoe['name'].'</td>
-       <td>'.addReduc($shoe['price'], 100).'</td>
+       <td>'.addReduc($shoe['price'], 10).'</td>
        <td>'.$shoe['stock'].'</td>
        <td><a href="2-superglobales.php?stock='.$shoe['stock'].'">💲</a></td>
        

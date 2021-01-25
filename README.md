@@ -190,14 +190,14 @@ Modifier le fichier `1-html.php`. ce fichier contient un tableau PHP.
 
 Modifier le fichier `2-superglobales.php`.
 
-- [ ] Récupérer la valeur de `stock` contenu dans l'url.
-- [ ] Si elle est vide, rediriger vers la page `1-html.php` (fonction `header()`)
-- [ ] Sinon, la mettre dans une variable `stock` en session.
-- [ ] Afficher un formulaire, avec 2 champs
-  - [ ] Quantité (un nombre entier)
-  - [ ] Email (champ de type email)
-- [ ] Vérifier que la quantité entrée est inférieure ou égale au paramètre `stock` de l'url
-  - [ ] Si ça n'est pas le cas, afficher un message d'erreur : "Il n'y a pas assez de stock pour répondre à votre demande"
-- [ ] Vérifier que l'email entré est valide en utilisant la fonction `filter_var` ([dont la documentation est ici](https://www.php.net/manual/fr/function.filter-var))
-  - [ ] Si ça n'est pas le cas, afficher un message d'erreur : "Veuillez entrer un email valide"
+- [x] Récupérer la valeur de `stock` contenu dans l'url.
+- [x] Si elle est vide, rediriger vers la page `1-html.php` (fonction `header()`)
+- [x] Sinon, la mettre dans une variable `stock` en session.
+- [x] Afficher un formulaire, avec 2 champs
+  - [x] Quantité (un nombre entier)
+  - [x] Email (champ de type email)
+- [x] Vérifier que la quantité entrée est inférieure ou égale au paramètre `stock` de l'url
+  - [x] Si ça n'est pas le cas, afficher un message d'erreur : "Il n'y a pas assez de stock pour répondre à votre demande"
+- [x] Vérifier que l'email entré est valide en utilisant la fonction `filter_var` ([dont la documentation est ici](https://www.php.net/manual/fr/function.filter-var))
+  - [x] Si ça n'est pas le cas, afficher un message d'erreur : "Veuillez entrer un email valide"
 - [ ] Si les deux champs sont valides, ajouter leurs valeurs dans la session (`quantity` et `email`)
