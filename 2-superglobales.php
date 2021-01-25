@@ -22,6 +22,8 @@ if (isset($_POST['mail'])) {
         echo "<div>Email invalide🚽</div>";
     }
 }
+$_SESSION['quantity']= $_POST['quantity'];
+$_SESSION['mail']= $_POST['mail'];
 
 ?>
 

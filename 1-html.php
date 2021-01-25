@@ -36,6 +36,8 @@ function addPromo($prix, $reduc)
     }
 };
 
+
+
 ?>
 
 <!DOCTYPE html>
