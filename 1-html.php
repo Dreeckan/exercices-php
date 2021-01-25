@@ -28,6 +28,14 @@ $shoes = [
     ],
 ];
 
+function addPromo($prix, $reduc)
+{
+    if ($prix > 100) {
+        $prix * (1 - ($reduc / 100)) . '€';
+        return  number_format($prix, 2, ',', '&nbsp;') . "€";
+    }
+};
+
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +46,49 @@ $shoes = [
     <title>Document</title>
 </head>
 <body>
-    
+    <table>
+        <tr> 
+          <th>Nom</th>
+          <th>Prix</th>
+          <th>Reduction</th>
+          <th>Stock</th>
+          <th>Lien</th>
+        </tr>
+      <?php
+      /** @var array $shoe */
+      foreach ($shoes as $shoe) {
+          ?>
+          <tr  style="color: <?php
+               if ($shoe['stock'] <20) {
+                   echo 'red';
+               } ?>;">
+               <td>
+                   <?= $shoe['name']; ?>
+               </td>
+          
+                <td>
+                   <?= $shoe['price'] . "€"; ?>
+               </td>
+                <td>
+                   <?= addPromo($shoe['price'], 10); ?>
+               </td>
+
+                <td>
+                   <?= $shoe['stock']; ?>
+               </td>
+           
+               <td>
+                   <a href="2-superglobales.php?stock=<?=$shoe['stock']?>">Voir</a>
+               </td>
+          </tr>
+           
+               
+
+               
+    <?php
+      }
+      ?>
+    </table>
+
 </body>
 </html>
