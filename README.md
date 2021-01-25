@@ -200,4 +200,18 @@ Modifier le fichier `2-superglobales.php`.
   - [x] Si ça n'est pas le cas, afficher un message d'erreur : "Il n'y a pas assez de stock pour répondre à votre demande"
 - [x] Vérifier que l'email entré est valide en utilisant la fonction `filter_var` ([dont la documentation est ici](https://www.php.net/manual/fr/function.filter-var))
   - [x] Si ça n'est pas le cas, afficher un message d'erreur : "Veuillez entrer un email valide"
-- [ ] Si les deux champs sont valides, ajouter leurs valeurs dans la session (`quantity` et `email`)
+- [x] Si les deux champs sont valides, ajouter leurs valeurs dans la session (`quantity` et `email`)
+  ## 3 Concevoir des fonctions
+- []Créer une fonction division qui :
+
+  prend 2 nombres en paramètres : le diviseur (nombre entier) et le divisé (nombre entier),
+  renvoie le résultat du calcul : divisé / diviseur
+  renvoie false si le paramètre diviseur vaut 0
+
+- []Créer une fonction factorielle qui calcule la factorielle jusqu'au paramètre donné
+
+  prend le paramètre number (nombre entier)
+  renvoie le résultat du calcul de la factorielle (si number vaut 0, renvoyer 1) (voir l'article Wikipedia pour le calcul)
+  indice : vous n'êtes pas obligés d'utiliser une méthode récursive ;)
+
+- []Faire un commit
