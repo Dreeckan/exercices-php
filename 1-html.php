@@ -27,3 +27,50 @@ $shoes = [
         'stock' => 32,
     ],
 ];
+
+function calculReduc($price, $taux)
+{
+    if ($price > 100) {
+        $price -= $price * ($taux / 100);
+        return number_format($price, 2, ',', ' ') . "€";
+    }
+}
+
+
+?>
+
+<table>
+<tr>
+<th>Nom</th>
+<th>Prix</th>
+<th>Promo</th>
+<th>Stock</th>
+<th>Lien</th>
+</tr>
+<?php
+
+foreach ($shoes as $shoe) {
+    ?>
+
+    <tr 
+
+    <?php
+
+    if ($shoe['stock'] < 20) {
+        echo 'style="color: red"';
+    } ?>
+
+    >
+
+                <td><?= $shoe['name'] ?></td>
+                <td><?= $shoe['price'] ?> €</td>
+                <td><?= calculReduc($shoe['price'], 10) ?></td>
+                <td><?= $shoe['stock']?></td>
+                <td><a href="2-superglobales.php?stock=<?=$shoe['stock']?>">Voir</a></td>
+    </tr> 
+
+<?php
+}
+?>
+
+</table>
