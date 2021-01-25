@@ -1,10 +1,8 @@
 <?php
 function reduction($reduc)
 {
-    if ($reduc > 100) {
-        $remise = $reduc / 1.10;
-        return number_format($remise, 2, ',', ' ');
-    }
+    $remise = $reduc / 1.10;
+    return number_format($remise, 2, ',', ' ');
 }
 $shoes = [
     [
