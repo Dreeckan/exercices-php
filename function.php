@@ -16,8 +16,7 @@
 
 function diviseur(int $diviseur, int $divise)
 {
-    $result = $divise / $diviseur;
-    return $result > 0 ? $result : false;
+    return $diviseur == 0 ? false : $divise / $diviseur;
 }
 
 var_dump(diviseur(2, 10));
