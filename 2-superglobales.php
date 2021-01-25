@@ -29,9 +29,6 @@ $_SESSION['mail']= $_POST['mail'];
 
 
 
-var_dump($_SESSION['quantity'], $_SESSION['mail']);
-
-
 
 ?>
 

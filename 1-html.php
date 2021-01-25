@@ -36,7 +36,6 @@ function calculReduc($price, $taux)
     }
 }
 
-
 ?>
 
 <table>
