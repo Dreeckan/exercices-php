@@ -32,3 +32,36 @@ function factorielle($num, $mult = 1)
 };
 
 var_dump(factorielle(5));
+
+
+/*
+Dans tous ces extraits de code se cachent plusieurs fautes, erreurs ou mauvaises pratiques.
+
+    $variable = $_GET['variable'];
+    if(isset($variable)) {
+        echo '$variable'
+    } else {
+        echo $_GET['varaible'];
+    }
+
+    function UneFonction (int $parametre): int
+    {
+        return $this->parametre * 2;
+    }
+
+    echo UneFonction($parametre = 2);
+*/
+    if (isset($_GET['variable'])) { // pour supprimer l'erreur car $_GET['variable'] n'existe pas
+        $variable = $_GET['variable'];
+        if (isset($variable)) {
+            echo $variable;
+        } else {
+            echo $_GET['variable'];
+        }
+    }
+    function uneFonction(int $parametre): int
+    {
+        return $parametre * 2;
+    }
+    
+    echo uneFonction($parametre = 2);
