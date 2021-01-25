@@ -29,10 +29,10 @@ $shoes = [
 ];
 function addReduc($item, $reduc)
 {
-    if ($item < 100) {
-        return number_format($item, 2, ',', ' ');
+    if ($item > 100) {
+        return number_format($item - ($item * ($reduc / 100)), 2, ',', ' ').' € ( '.$reduc. ' % de reduction )';
     }
-    return number_format($item - ($item * ($reduc / 100)), 2, ',', ' ').' € avec la  reduction de '.$reduc. ' %';
+    return '';
 }
 ?>
 
@@ -42,6 +42,7 @@ function addReduc($item, $reduc)
        <th>Nom</th>
        <th>Prix</th>
        <th>Nombre en stock</th>
+       <th>reduction</th>
        <th>ajouter au panier</th>
    </tr>
    <?php
@@ -53,8 +54,9 @@ function addReduc($item, $reduc)
        }
        echo'<tr '.$color.'>
        <td>'.$shoe['name'].'</td>
-       <td>'.addReduc($shoe['price'], 10).'</td>
+       <td>'.$shoe['price'].'</td>
        <td>'.$shoe['stock'].'</td>
+       <td>'.addReduc($shoe['price'], 10).'</td>
        <td><a href="2-superglobales.php?stock='.$shoe['stock'].'">💲</a></td>
        
    </tr>';
