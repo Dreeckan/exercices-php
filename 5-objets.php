@@ -1,7 +1,5 @@
 <?php
 
-// je sais pas ce que "surcharger un constructeur veut dire" et google (et l'heure) ne m'a pas aidé :(
-
 require_once 'includes/autoload.php';
 
 $comicBook = new ComicBook();
