@@ -27,3 +27,37 @@ $shoes = [
         'stock' => 32,
     ],
 ];
+
+// fonction réduction pour calculer prix soldé
+
+function reduction($price, $tauxReduction)
+{
+    $price = $price - $tauxReduction;
+    return $price;
+}
+
+
+// affiche de la liste
+
+echo "  <table>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th> 
+                <th>Prix soldé</th>
+                <th>Stock</th>
+                <th>Produit</th>
+            </tr>";
+
+foreach ($shoes as $item) {
+    $item['stock'] < 20 ? $color = "red" : $color = "black";
+
+    echo "  <tr>
+                    <td style='color:".$color."'>".$item['name']."</td>
+                    <td style='color:".$color."'>".number_format($item['price'], 2, ',', ' ')." €</td>
+                    <td style='color:".$color."'>".number_format(reduction($item['price'], 20), 2, ',', ' ')." €</td>
+                    <td style='color:".$color."'>".$item['stock']."</td>
+                    <td style='color:".$color."'><a href='2-superglobales.php?stock=".$item['stock']."'>".$item['name']."</a></td>
+                </tr>";
+}
+
+echo "</table>";
