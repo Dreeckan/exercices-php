@@ -1,5 +1,44 @@
 <?php
 
+function promoShoe($price)
+{
+    if ($price < 100) {
+        return number_format($price, 2, ',', '');
+    }
+    return number_format($price / 1.1);
+}
+
+
+function afficheProduit($shoe)
+{
+    if ($shoe['stock'] <= 20) {
+        $color = "red";
+    } else {
+        $color = "blue";
+    }
+    echo '
+    <tr>
+        <td style="color:'.$color.'">
+            '.$shoe['name'].
+        '</td>
+        <td style="color:'.$color.'">
+            '.$shoe['price'].'€
+        </td>
+        <td>';
+    if ($shoe['price'] > 100) {
+        echo promoShoe($shoe['price']).'€';
+    }
+    echo '        
+        </td>
+        <td style="color:'.$color.'">
+            '.$shoe['stock'].'
+        </td>
+        <td>
+            <a href="2-superglobales.php?stock='.$shoe['stock'].'">Lien</a>
+        </td>
+    </tr>';
+}
+
 $shoes = [
     [
         'name'  => 'Heracles air max ++',
@@ -27,3 +66,23 @@ $shoes = [
         'stock' => 32,
     ],
 ];
+?>
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Prix</th>
+        <th>Prix Réduit</th>
+        <th>Stock</th>
+        <th>Lien</th>    
+    </tr>
+<?php
+foreach ($shoes as $shoe) {
+    ?>
+<?php
+afficheProduit($shoe);
+}
+?>
+</table>
+
+
+
