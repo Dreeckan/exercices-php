@@ -29,7 +29,10 @@ $shoes = [
 ];
 function addReduc($item, $reduc)
 {
-    return $item. ' € puis '.number_format($item - ($item * ($reduc / 100)), 2, ',', ' ').' € avec la  reduction de '.$reduc. ' €';
+    if ($item < 100) {
+        return number_format($item, 2, ',', ' ');
+    }
+    return number_format($item - ($item * ($reduc / 100)), 2, ',', ' ').' € avec la  reduction de '.$reduc. ' %';
 }
 ?>
 
