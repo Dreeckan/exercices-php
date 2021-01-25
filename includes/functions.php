@@ -40,7 +40,21 @@ function factor (int $number)
     if ($number == 0) {
         return 1;
     } else {
-        $resultat = $number * factorielle($number - 1)
+        $resultat = $number * factor($number - 1)
         return $resultat;
     }
 }
+
+$variable = $_GET['variable'];
+if(isset($variable)) {
+    echo '$variable'
+} else {
+    echo $_GET['variable'];
+}
+
+function UneFonction (int $parametre): int
+{
+    return $this->parametre * 2;
+}
+
+echo UneFonction($parametre = 2);
