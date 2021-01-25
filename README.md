@@ -174,18 +174,18 @@ Cette section est dédiée à réviser tout ce qu'on a vu dans les leçons de PH
 
 Modifier le fichier `1-html.php`. ce fichier contient un tableau PHP. 
 
-- [ ] Afficher son contenu dans un tableau (balise `<table>`). Pour cela, utiliser une boucle `foreach`.
+- [X] Afficher son contenu dans un tableau (balise `<table>`). Pour cela, utiliser une boucle `foreach`.
 - Le tableau doit avoir 3 colonnes
-  - [ ] Nom des chaussures
-  - [ ] Prix (en euros)
-  - [ ] Nombre en stock
-- [ ] S'il en reste moins de 20 en stock, afficher le texte de **toute** la ligne en rouge
+  - [X] Nom des chaussures
+  - [X] Prix (en euros)
+  - [X] Nombre en stock
+- [X] S'il en reste moins de 20 en stock, afficher le texte de **toute** la ligne en rouge
 - Aujourd'hui, il y a une réduction sur toutes les chaussures de plus de 100€ ! 
-  - [ ] Faire une fonction (dans ce même fichier) qui va appliquer un taux de réduction à un prix (ces deux informations vont être passés en paramètres).
-  - [ ] Dans ce cas, afficher les deux prix pour signaler la réduction
-- [ ] Afficher tous les prix avec le format français (ex : 12,45€) grâce à la fonction `number_format()` ([dont la documentation est ici](https://php.net/manual/fr/function.number-format.php))
-- [ ] Ajouter une colonne avec un lien sur chaque nom de chaussure vers la page `2-superglobales.php` et ajouter un paramètre `stock` dans l'url, avec comme valeur, le stock en cours de cette chaussure.
-- [ ] Faire un commit
+  - [X] Faire une fonction (dans ce même fichier) qui va appliquer un taux de réduction à un prix (ces deux informations vont être passés en paramètres).
+  - [X] Dans ce cas, afficher les deux prix pour signaler la réduction
+- [X] Afficher tous les prix avec le format français (ex : 12,45€) grâce à la fonction `number_format()` ([dont la documentation est ici](https://php.net/manual/fr/function.number-format.php))
+- [X] Ajouter une colonne avec un lien sur chaque nom de chaussure vers la page `2-superglobales.php` et ajouter un paramètre `stock` dans l'url, avec comme valeur, le stock en cours de cette chaussure.
+- [X] Faire un commit
 
 ## 2. Les variables superglobales
 

@@ -1,5 +1,7 @@
 <?php
 
+require_once 'includes/functions.php';
+
 $shoes = [
     [
         'name'  => 'Heracles air max ++',
@@ -27,3 +29,17 @@ $shoes = [
         'stock' => 32,
     ],
 ];
+?>
+
+<table>
+<thead> <!-- En-tête du tableau -->
+       <tr>
+           <th>Chaussures</th>
+           <th>Prix TTC</th>
+           <th>Quantité</th>
+       </tr>
+   </thead>
+    <?php
+        showShoes($shoes);
+    ?>
+</table>
