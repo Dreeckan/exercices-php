@@ -24,7 +24,7 @@ $shoes = [
     [
         'name'  => 'Hadès méga-dark',
         'price' => 55.12,
-        'stock' => 32,
+        'stock' => 0,
     ],
 ];
 
