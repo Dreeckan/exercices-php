@@ -27,3 +27,34 @@ $shoes = [
         'stock' => 32,
     ],
 ];
+function addReduc($item, $reduc)
+{
+    return $item. ' € puis '.number_format($item - $reduc, 2, ',', ' ').' € avec la  reduction de '.$reduc. ' €';
+}
+?>
+
+<table style="text-align: center;">
+   <caption>Liste des chaussures</caption>
+   <tr>
+       <th>Nom</th>
+       <th>Prix</th>
+       <th>Nombre en stock</th>
+       <th>ajouter au panier</th>
+   </tr>
+   <?php
+   foreach ($shoes as $shoe) {
+       if ($shoe['stock'] < 20) {
+           $color = 'style="color:red;"';
+       } else {
+           $color = '';
+       }
+       echo'<tr '.$color.'>
+       <td>'.$shoe['name'].'</td>
+       <td>'.addReduc($shoe['price'], 100).'</td>
+       <td>'.$shoe['stock'].'</td>
+       <td><a href="2-superglobales.php?stock='.$shoe['stock'].'">💲</a></td>
+       
+   </tr>';
+   }
+   ?>
+</table>
