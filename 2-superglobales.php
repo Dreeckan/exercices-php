@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
  $stock = $_GET['stock'];
 if (empty($stock)) {
     header('Location: 1-html.php');

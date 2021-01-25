@@ -51,17 +51,17 @@ foreach ($shoes as $item) {
     $item['stock'] < 20 ? $color = "red" : $color = "black";
 
     echo "  <tr>
-                    <td style='color:".$color."'>".$item['name']."</td>
-                    <td style='color:".$color."'>".number_format($item['price'], 2, ',', ' ')." €</td>";
+                <td style='color:".$color."'>".$item['name']."</td>
+                <td style='color:".$color."'>".number_format($item['price'], 2, ',', ' ')." €</td>";
     if ($item['price'] > 100) {
         echo
             "<td style='color:".$color."'>".number_format(reduction($item['price'], 10), 2, ',', ' ')." €</td>";
     } else {
         echo "<td style='color:".$color."'>non soldé</td>";
     }
-    echo "<td style='color:".$color."'>".$item['stock']."</td>
-                    <td style='color:".$color."'><a href='2-superglobales.php?stock=".$item['stock']."'>".$item['name']."</a></td>
-                </tr>";
+    echo "      <td style='color:".$color."'>".$item['stock']."</td>
+                <td style='color:".$color."'><a href='2-superglobales.php?stock=".$item['stock']."'>".$item['name']."</a></td>
+            </tr>";
 }
 
 echo "</table>";
