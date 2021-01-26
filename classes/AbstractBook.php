@@ -19,6 +19,16 @@ abstract class AbstractBook
      */
     protected $title;
 
+    // constructeur qui met des valeurs par défaut aux propriétés countPages, isbn, title
+
+    public function __construct()
+    {
+        $this->setCountPages(100);
+        $this->setIsbn('');
+        $this->setTitle('');
+    }
+
+
     // met à jour le contenu de la propriété `countPages` à partir de la variable `$countPages`
 
     /**

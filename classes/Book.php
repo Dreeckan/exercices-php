@@ -4,6 +4,7 @@ class Book extends AbstractBook
 {
     public function __construct()
     {
-        $this->countPages = 200;
+        parent::__construct();
+        $this->setCountPages(200);
     }
 }
