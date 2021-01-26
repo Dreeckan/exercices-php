@@ -4,6 +4,6 @@ class ComicBook extends abstractBook
 {
     public function __construct()
     {
-        $countBook = 200;
+        $this->countBook = 200;
     }
 }

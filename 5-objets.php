@@ -11,6 +11,7 @@ $book = new Book();
 $book->setCountPages(464);
 $book->setIsbn('9782940426379');
 $book->setTitle('Caliban et la sorcière');
+?>
 
-
-//TitreDuLivre (Isbn) : countPages pages <br />
+<?php echo $book->getTitle(); ?> (<?php echo $book->getIsbn(); ?>) : <?php echo $book->getCountPages(); ?> <br />
+<?php echo $comicBook->getTitle(); ?> (<?php echo $comicBook->getIsbn(); ?>) : <?php echo $comicBook->getCountPages(); ?> <br />
