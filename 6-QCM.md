@@ -26,9 +26,9 @@ $test = new Test();
 var_dump($test instanceof Beanie);
 ```
 
-- [ ] une erreur
+- [X] une erreur
 - [ ] true
-- [X] false
+- [ ] false
 
 ### 6.3. Ce code plante, pourquoi ?
 
@@ -51,9 +51,9 @@ class Child extends Test
 }
 ```
 
-- [X] La classe `Test` n'a pas de de méthode `getTest()`
+- [ ] La classe `Test` n'a pas de de méthode `getTest()`
 - [ ] La propriété `test` n'est pas définie dans la classe `Child`
-- [ ] la méthode `getValue()` n'est pas définie dans la classe `Child`
+- [X] la méthode `getValue()` n'est pas définie dans la classe `Child`
 
 ### 6.4. Ce code plante, pourquoi ?
 
@@ -78,6 +78,6 @@ class Child implements Test
 }
 ```
 
-- [ ] Il manque un namespace à l'interface `Test`
+- [X] Il manque un namespace à l'interface `Test`
 - [ ] L'interface `Test` n'a pas de de méthode `getThing()`
-- [X] La propriété `thing` n'est pas définie dans l'interface `Test`
+- [ ] La propriété `thing` n'est pas définie dans l'interface `Test`

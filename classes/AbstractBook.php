@@ -46,4 +46,9 @@ abstract class abstractBook //une classe abstraite est une classe ne pouvant êt
     {
         $this->title = $title;
     }
+
+    public function __construct()
+    {
+        $this->countBook = 200;
+    }
 } 

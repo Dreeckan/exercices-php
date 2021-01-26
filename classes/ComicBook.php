@@ -4,6 +4,7 @@ class ComicBook extends abstractBook
 {
     public function __construct()
     {
-        $this->countBook = 200;
+        parent::__construct()
+        $this->setCountPages(200);
     }
 }

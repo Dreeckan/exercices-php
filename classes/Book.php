@@ -1,9 +1,10 @@
 <?php
 
-class Book extends abstractBook
+class ComicBook extends abstractBook
 {
     public function __construct()
     {
-        -$this->countBook = 152;
+        parent::__construct()
+        $this->setCountPages(200);
     }
 }
