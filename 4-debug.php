@@ -41,3 +41,26 @@ echo double(2);
 //    echo double($otherNumber);
 
 /***********************************************************************/
+
+echo openBook(6); // test6
+echo openBook(10); // erreur car l'index 10 n'existe pas dans ce tableau
+echo openBook(5); // test5
+
+
+function openBook($page)
+{
+    $tab = [
+        'test',
+        'test2',
+        'test3',
+        'test4',
+        'un intrus',
+        'test5',
+        'test6',
+        'test7',
+        'test8',
+    ];
+    return $tab[$page];
+}
+
+/***********************************************************************/
