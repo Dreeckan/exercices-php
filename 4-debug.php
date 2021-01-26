@@ -5,18 +5,18 @@
 //
 //
     $variable = $_GET['variable'];
-    if(isset($variable)) {
-        echo '$variable'
-    } else {
-        echo $_GET['varaible'];
+    if(isset($variable)){
+        echo $variable;
+    }else {
+        echo $_GET['variable'];
     }
 
     function UneFonction (int $parametre): int
     {
-        return $this->parametre * 2;
+        return $parametre * 2;
     }
 
-    echo UneFonction($parametre = 2);
+    echo UneFonction(2);
 
 
 //
