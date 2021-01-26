@@ -1,22 +1,26 @@
 <?php
-//
-//
-// Corriger les erreurs et les mauvaises pratiques dans l'extrait de code suivant
-//
-//
-    $variable = $_GET['variable'];
-    if(isset($variable)) {
-        echo '$variable'
-    } else {
-        echo $_GET['varaible'];
+    //
+    //
+    // Corriger les erreurs et les mauvaises pratiques dans l'extrait de code suivant
+    //
+    //
+    $variable = '';
+    if (isset($_GET['variable'])) {
+        $variable = $_GET['variable'];
     }
+    echo $variable;
 
-    function UneFonction (int $parametre): int
+    /**
+     * @param int $parametre
+     *
+     * @return int
+     */
+    function uneFonction(int $parametre): int
     {
-        return $this->parametre * 2;
+        return $parametre * 2;
     }
 
-    echo UneFonction($parametre = 2);
+    echo uneFonction(2);
 
 
 //
@@ -24,9 +28,9 @@
 // Ajouter des commentaires pour dire ce que retournent les appels de fonctions suivants (s'ils renvoient une erreur, marquer "une erreur" et expliquer pourquoi) :
 //
 //
-echo openBook(6); // Votre réponse ici
-echo openBook(10); // Votre réponse ici
-echo openBook(5); // Votre réponse ici
+echo openBook(6); // test6
+echo openBook(10); // Une erreur (index 10 n'existe pas)
+echo openBook(5); // un intrus
 
 
 function openBook($page) {
