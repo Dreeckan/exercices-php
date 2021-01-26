@@ -262,7 +262,7 @@ Pour tous les exemples utilisant des objets, nous partons du principe qu'il y a 
 
 ### 6.1. On peut utilise la pseudo-variable `$this` dans :
 
-- [ ] une classe
+- [x] une classe
 - [ ] une fonction
 - [ ] n'importe où dans le PHP
 
@@ -270,7 +270,7 @@ Pour tous les exemples utilisant des objets, nous partons du principe qu'il y a 
 
 - [ ] d'une ou plusieurs autres classes
 - [ ] d'une autre classe
-- [ ] de zéro ou une autre classe
+- [x] de zéro ou une autre classe
 
 ### 6.2. Que renvoie le code suivant
 
@@ -283,7 +283,7 @@ $test = new Test();
 var_dump($test instanceof Beanie);
 ```
 
-- [ ] une erreur
+- [x] une erreur
 - [ ] true
 - [ ] false
 
@@ -308,7 +308,7 @@ class Child extends Test
 }
 ```
 
-- [ ] La classe `Test` n'a pas de de méthode `getTest()`
+- [x] La classe `Test` n'a pas de de méthode `getTest()`
 - [ ] La propriété `test` n'est pas définie dans la classe `Child`
 - [ ] la méthode `getValue()` n'est pas définie dans la classe `Child`
 
@@ -335,10 +335,10 @@ class Child implements Test
 }
 ```
 
-- [ ] Il manque un namespace à l'interface `Test`
+- [x] Il manque un namespace à l'interface `Test`
 - [ ] L'interface `Test` n'a pas de de méthode `getThing()`
 - [ ] La propriété `thing` n'est pas définie dans l'interface `Test`
 
 ### 6.5. Commit
 
-- [ ] Faites un commit
+- [x] Faites un commit
