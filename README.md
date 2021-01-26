@@ -7,13 +7,15 @@ Je vous conseille de créer une branche pour chaque exercice (une branche pour l
 ## 1. Créer et utiliser un objet
 
 - [ ] Créer un fichier `includes/autoload.php` avec ce contenu :
+
 ```php
 spl_autoload_register(function ($class) {
-    // Dé-commenter la ligne ci-dessous si vous utilisez un Mac avec MAMP 
+    // Dé-commenter la ligne ci-dessous si vous utilisez un Mac avec MAMP
     // $class = str_replace($class, '\\', '/');
     require_once "classes/$class.php";
 });
 ```
+
 - [ ] Inclure ce fichier dans `index.php` et ajouter un commentaire pour expliquer à quoi sert la fonction `spl_autoload_register`
 
 - [ ] Créer une classe `Computer` (fichier `classes/Computer.php`)
@@ -55,9 +57,10 @@ spl_autoload_register(function ($class) {
 
 - [ ] Rendre la classe `Computer` abstraite (ajouter le mot-clé `abstract` à la déclaration de la classe)
 - [ ] Constater l'erreur dans le fichier `index.php`
-- [ ] Enlever l'objet de type `Computer` de vos tests. Il n'est maintenant plus possible d'instancier d'objets `Computer` et il faut désormais utiliser une classe *concrète* pour créer des ordinateurs
+- [ ] Enlever l'objet de type `Computer` de vos tests. Il n'est maintenant plus possible d'instancier d'objets `Computer` et il faut désormais utiliser une classe _concrète_ pour créer des ordinateurs
 
 - Créer les dossiers et les fichiers des composants
+
   - [ ] Créer le fichier `Component/AbstractComponent.php` et la classe abstraite `AbstractComponent`
   - [ ] Y ajouter les propriétés `name` et `brand`, de type string.
   - [ ] Ajouter les getters et les setters
@@ -84,15 +87,13 @@ spl_autoload_register(function ($class) {
     - [ ] Et la méthode `setName` avec la signature suivante `public function setName(?string $name): HasNameInterface`
     - [ ] Ajouter le `implements HasNameInterface` dans vos classes `AbstractDevice`, `Computer` et `AbstractComponent` (attention au `namespace` et au `use`)
     - [ ] Vous devriez voir des erreurs apparaitre (dans VS Code ou votre navigateur). Il s'agit maintenant de les corriger avec ce que vous avez appris dans les exercices précédents ;).
-    
   - [ ] Sur le même modèle, créer le fichier `HasBrandInterface.php` et l'interface `HasBrandInterface` avec les méthodes :
     - [ ] `getBrand` avec la signature `public function getBrand(): ?string`
     - [ ] `setBrand` avec la signature `public function setBrand(?string $brand): HasBrandInterface`
     - [ ] Ajouter le `implements HasBrandInterface` dans vos classes `AbstractDevice` et `AbstractComponent` (attention au `namespace` et au `use`)
     - [ ] Vous devriez voir des erreurs apparaitre (dans VS Code ou votre navigateur). Il s'agit maintenant de les corriger avec ce que vous avez appris dans les exercices précédents ;).
-    
   - [ ] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github
-  
+
 ## 4. Traits
 
 - Maintenant que nous avons forcé nos objets à avoir certaines méthodes, nous allons simplifier l'implémentation de ces méthodes en utilisant des traits (en somme, nous regroupons le code que nous avons écrit plusieurs fois et que nous avons forcé à être identique d'un fichier à l'autre)
@@ -105,7 +106,6 @@ spl_autoload_register(function ($class) {
     - [ ] Appeler le trait `HasNameTrait` dans les classes `AbstractDevice`, `Computer` et `AbstractComponent` (attention aux `namespace` et aux `use`)
     - [ ] Supprimer les autres déclaration de la propriété `$name` et des méthodes `getName`et `setName`
     - [ ] Vérifier que votre code fonctionne toujours (et corriger si besoin)
-    
   - [ ] Sur le même modèle créer le fichier `HasBrandTrait.php` et le trait `HasBrandTrait`
     - [ ] Y déplacer la déclaration de la propriété `$brand`
     - [ ] Y déplacer la déclaration de la méthode `getBrand`
@@ -113,9 +113,8 @@ spl_autoload_register(function ($class) {
     - [ ] Appeler le trait `HasBrandTrait` dans les classes `AbstractDevice` et `AbstractComponent` (attention aux `namespace` et aux `use`)
     - [ ] Supprimer les autres déclaration de la propriété `$brand` et des méthodes `getBrand`et `setBrand`
     - [ ] Vérifier que votre code fonctionne toujours (et corriger si besoin)
-    
   - [ ] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github
-  
+
 ## 5. instanceof et validation de données
 
 - Nos objets sont maintenant plus courts et nous avons évité de dupliquer du code, nous pouvons commencer à ajouter d'autres éléments fonctionnels. Dans un premier temps, nous allons ajouter un objet de validation de nos objets de type `Computer`.
@@ -128,21 +127,21 @@ spl_autoload_register(function ($class) {
   - [ ] Dans cette méthode `validate`, dont le premier paramètre est un objet de type `Computer`, nous allons vérifier :
     - Que le computer passé en paramètre contienne dans ses composants :
       - [ ] un objet `MotherBoard`,
-      - [ ] un objet `Ram`, 
+      - [ ] un objet `Ram`,
       - [ ] un objet `Cpu`,
       - [ ] et 0 ou un objet `GraphicCard`
     - Que le computer passé en paramètre contienne dans ses périphériques :
       - [ ] un objet `Keyboard`,
-      - [ ] un objet `Mouse`, 
+      - [ ] un objet `Mouse`,
       - [ ] 0 ou un objet `Speaker`
   - [ ] Instancier ce validateur dans `index.php` et utiliser la méthode `validate` sur vos différents ordinateurs pour vérifier qu'ils sont valides
   - [ ] Faire en sorte d'avoir au moins un ordinateur qui ne soit pas valide
   - [ ] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github. Utiliser votre branche de l'exercice 4 comme base (plutôt que `main`)
-  
+
 ## 6. Serialisation
 
 - Nous avons un outil de validation de nos ordinateurs, il va nous falloir d'autres outils dans la vie de ce projet, avant d'utiliser un framework. Un outil qui va nous servir plus tard, la sérialisation : l'art de convertir un objet PHP en un format de communication avec d'autres langages / technologies. Nous allons faire en sorte de convertir nos objets PHP au format JSON (et préparer un peu le terrain pour la partie sur les WebServices ;) ).
-  - Implémenter l'interface [JsonSerializable](https://www.php.net/manual/fr/class.jsonserializable.php) dans les objets `Computer`, `AbstractComponent` et `AbstractDevice`. 
+  - Implémenter l'interface [JsonSerializable](https://www.php.net/manual/fr/class.jsonserializable.php) dans les objets `Computer`, `AbstractComponent` et `AbstractDevice`.
     - [ ] En plus d'ajouter le `implements`, il faut également ajouter la méthode `jsonSerialize()` (obligatoire pour implémenter l'interface) pour décomposer nos objets en [tableaux (associatifs)](https://www.php.net/manual/fr/language.types.array.php), sur le format `'nomDeLaPropriete' => 'valeurDeLaPropriete'`.
   - Ajouter des propriétés supplémentaires dans les différents composants et périphériques et surcharger la méthode `jsonSerialize()` pour ces objets.
     - [ ] Ajouter l'attribut `$frequency` (float) à la class `Cpu`, avec son getter et son setter
@@ -154,25 +153,25 @@ spl_autoload_register(function ($class) {
     - [ ] Ajouter l'attribut `$countSpeakers` (float) à la class `Speaker`, avec son getter et son setter
     - [ ] Mettre à jour les méthodes `jsonSerialize()` de ces classes. [Un exemple de méthode surchargée est présente dans les slides](http://formation-hb.drakolab.fr/php/3-objet.html#14) ou [l'exemple 3 de cette documentation](https://www.php.net/manual/fr/language.oop5.paamayim-nekudotayim.php)
   - [ ] Tester que la sérialisation fonctionne en utilisant la fonction `json_encode()` sur vos objets `Computer` (vous devez avoir toutes les informations de vos objets et leurs sous-objets) (faites un `echo` ou un `var_dump()` du résultat).
-  
+
 ## 7. Compatibilité des composants et périphériques (/!\ difficile)
 
 - Pour l'heure, nos composants et nos périphériques peuvent être installés dans n'importe quel ordinateur. Dans les faits, il va falloir enregistrer dans nos composants et nos périphériques avec quel(s) type(s) d'ordinateur ils sont compatibles.
   - [ ] Ajouter une propriété `$compatibility` dans `AbstractComponent` et `AbstractDevice` et ses méthodes. Pour ça, créer un trait (je vous laisse voir le nom ET le rangement :P ).
   - [ ] Ajouter également dans ce trait une méthode `isCompatibleWith($className)` qui va prendre en paramètre un FQCN (Fully Qualified Class Name) (renvoyé par exemple par `Laptop::class`) et va renvoyer si l'élément est compatible avec ce type d'objet.
   - [ ] Modifier le comportement de `setComponents()` et `setDevices()`. On va vouloir ajouter les éléments un par un et vérifier au fur et à mesure que l'élément ajouté est bien compatible avec le type d'ordinateur choisi. Si la pièce n'est pas compatible, il va falloir [lever une exception](https://www.php.net/manual/fr/language.exceptions.php) (une erreur)
-  - [ ] Utiliser ces éléments dans `index.php` : 
+  - [ ] Utiliser ces éléments dans `index.php` :
     - [ ] Ajouter plusieurs pièces dans `index.php`, compatibles avec différents types d'ordinateur (mais pas tous ;)). Les ajouter à des ordinateurs.
     - [ ] Faites des cas qui fonctionnent, d'autres non, pour voir votre exception.
   - [ ] Mettre à jour le `ComputerValidator` pour assurer que tous les composants et périphériques sont bien compatibles avec l'ordinateur qui est validé.
-  
+
 # Révisions
 
 Cette section est dédiée à réviser tout ce qu'on a vu dans les leçons de PHP (procédural, documentation et objet). Nous allons créer / modifier beaucoup de fichiers et faire différents commits. Nous allons faire tout ça dans **une seule** branche `votreNom-revisions` (et, du coup, tout mettre dans une seule Pull Request).
 
 ## 1. Html, PHP et tableaux
 
-Modifier le fichier `1-html.php`. ce fichier contient un tableau PHP. 
+Modifier le fichier `1-html.php`. ce fichier contient un tableau PHP.
 
 - [ ] Afficher son contenu dans un tableau (balise `<table>`). Pour cela, utiliser une boucle `foreach`.
 - Le tableau doit avoir 3 colonnes
@@ -180,7 +179,7 @@ Modifier le fichier `1-html.php`. ce fichier contient un tableau PHP.
   - [ ] Prix (en euros)
   - [ ] Nombre en stock
 - [ ] S'il en reste moins de 20 en stock, afficher le texte de **toute** la ligne en rouge
-- Aujourd'hui, il y a une réduction de 10% sur toutes les chaussures de plus de 100€ ! 
+- Aujourd'hui, il y a une réduction de 10% sur toutes les chaussures de plus de 100€ !
   - [ ] Faire une fonction (dans ce même fichier) qui va appliquer un taux de réduction à un prix (ces deux informations vont être passés en paramètres).
   - [ ] Dans ce cas, afficher les deux prix pour signaler la réduction
 - [ ] Afficher tous les prix avec le format français (ex : 12,45€) grâce à la fonction `number_format()` ([dont la documentation est ici](https://php.net/manual/fr/function.number-format.php))
@@ -214,7 +213,7 @@ Modifier le fichier `2-superglobales.php`.
 - [ ] Créer une fonction `factorielle` (voir [l'article Wikipedia pour le calcul](https://fr.wikipedia.org/wiki/Factorielle)) qui calcule la factorielle jusqu'au paramètre donné
   - [ ] prend le paramètre `number` (nombre entier)
   - [ ] renvoie le résultat du calcul de la factorielle (si number vaut 0, renvoyer 1)
-  - [ ] indice : vous n'êtes pas obligés d'utiliser une méthode récursive ;) 
+  - [ ] indice : vous n'êtes pas obligés d'utiliser une méthode récursive ;)
 - [ ] faire des appels dans le fichier `3-fonctions.php` pour vérifier les résultats et les afficher (utiliser la fonction `var_dump()` pour afficher les résultats plus clairement)
 - [ ] Faire un commit
 
@@ -227,7 +226,6 @@ Ne pas exécuter le fichier `4-debug.php` dans Wamp ou Mamp. Ils risquent de fai
   - [ ] remplacer les commentaires `Votre réponse ici` par votre réponse
   - [ ] s'ils renvoient une erreur, marquer "une erreur" et expliquer pourquoi avec vos mots
 - [ ] Faire un commit
-
 
 ## 5. Objets
 
@@ -244,11 +242,11 @@ Ne pas exécuter le fichier `4-debug.php` dans Wamp ou Mamp. Ils risquent de fai
 - Dans `ComicBook` :
   - [ ] Surcharger le constructeur du parent pour que `countPages` soit égal à `152` par défaut
 - Appeler ces deux classes dans `5-objets.php` et créer 2 instances de ces objets (une de `ComicBook` et une de `Book`) avec les valeurs suivantes :
-  - Pour le `ComicBook` : 
+  - Pour le `ComicBook` :
     - [ ] `countPages` : 152
     - [ ] `isbn` : 9791026817710
     - [ ] `title` : `La chute de Tír na Nóg`
-  - Pour le `Book` : 
+  - Pour le `Book` :
     - [ ] `countPages` : 464
     - [ ] `isbn` : 9782940426379
     - [ ] `title` : `Caliban et la sorcière`
@@ -262,15 +260,15 @@ Pour tous les exemples utilisant des objets, nous partons du principe qu'il y a 
 
 ### 6.1. On peut utilise la pseudo-variable `$this` dans :
 
-- [ ] une classe
-- [ ] une fonction
+- [x] une classe
+- [] une fonction
 - [ ] n'importe où dans le PHP
 
 ### 6.2. Une classe doit hériter :
 
 - [ ] d'une ou plusieurs autres classes
 - [ ] d'une autre classe
-- [ ] de zéro ou une autre classe
+- [x] de zéro ou une autre classe
 
 ### 6.2. Que renvoie le code suivant
 
@@ -283,7 +281,7 @@ $test = new Test();
 var_dump($test instanceof Beanie);
 ```
 
-- [ ] une erreur
+- [x] une erreur
 - [ ] true
 - [ ] false
 
@@ -291,10 +289,10 @@ var_dump($test instanceof Beanie);
 
 ```php
 // Fichier Test.php
-abstract class Test 
+abstract class Test
 {
     protected $test = 'un test';
-     
+
     abstract public function getValue();
 }
 
@@ -308,7 +306,7 @@ class Child extends Test
 }
 ```
 
-- [ ] La classe `Test` n'a pas de de méthode `getTest()`
+- [x] La classe `Test` n'a pas de de méthode `getTest()`
 - [ ] La propriété `test` n'est pas définie dans la classe `Child`
 - [ ] la méthode `getValue()` n'est pas définie dans la classe `Child`
 
@@ -316,7 +314,7 @@ class Child extends Test
 
 ```php
 // Fichier Interfaces/Test.php
-interface Test 
+interface Test
 {
     public function getThing();
 }
@@ -327,7 +325,7 @@ use Test;
 class Child implements Test
 {
     protected $thing;
-    
+
     public function getThing()
     {
         return $this->thing;
@@ -337,7 +335,7 @@ class Child implements Test
 
 - [ ] Il manque un namespace à l'interface `Test`
 - [ ] L'interface `Test` n'a pas de de méthode `getThing()`
-- [ ] La propriété `thing` n'est pas définie dans l'interface `Test`
+- [x] La propriété `thing` n'est pas définie dans l'interface `Test`
 
 ### 6.5. Commit
 
