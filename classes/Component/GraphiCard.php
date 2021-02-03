@@ -17,4 +17,11 @@ class GraphiCard extends AbstractComponent
     {
         $this->videoRam = $vr;
     }
+
+    public function jsonSerialize(): array
+    {
+        $parent = parent::jsonSerialize();
+        $parent['videoRam'] = $this->getVideoRam();
+        return $parent;
+    }
 }
