@@ -17,4 +17,11 @@ class Ram extends AbstractComponent
     {
         $this->memoire = $r;
     }
+
+    public function jsonSerialize(): array
+    {
+        $parent = parent::jsonSerialize();
+        $parent['memoire'] = $this->getMemoire();
+        return $parent;
+    }
 }

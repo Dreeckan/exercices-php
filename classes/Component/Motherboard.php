@@ -17,4 +17,11 @@ class Motherboard extends AbstractComponent
     {
         $this->chipset = $c;
     }
+
+    public function jsonSerialize(): array
+    {
+        $parent = parent::jsonSerialize();
+        $parent['chipset'] = $this->getChipset();
+        return $parent;
+    }
 }
