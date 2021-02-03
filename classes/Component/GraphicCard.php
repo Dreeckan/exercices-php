@@ -36,6 +36,7 @@ class GraphicCard extends AbstractComponent
     {
         $array = parent::jsonSerialize();
         $array["rtx"] = $this->rtx;
+        $array["type"] = self::class;
         return $array;
     }
 }

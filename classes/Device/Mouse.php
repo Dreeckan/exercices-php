@@ -36,6 +36,7 @@ class Mouse extends AbstractDevice
     {
         $array = parent::jsonSerialize();
         $array["leftHanded"] = $this->leftHanded;
+        $array["type"] = self::class;
         return $array;
     }
 }

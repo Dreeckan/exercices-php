@@ -36,6 +36,7 @@ class MotherBoard extends AbstractComponent
     {
         $array = parent::jsonSerialize();
         $array["chipset"] = $this->chipset;
+        $array["type"] = self::class;
         return $array;
     }
 }

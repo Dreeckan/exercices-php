@@ -58,6 +58,7 @@ abstract class AbstractComputer implements HasNameInterface, JsonSerializable
         }
 
         $this->listDevices[get_class($device)] = $device;
+        // laissé comme ça, on ne peut avoir qu'un composant de même type, sinon remplace vu que même nom, si on veut contrer ça alors laisser []
         return $this;
     }
 
@@ -88,7 +89,7 @@ abstract class AbstractComputer implements HasNameInterface, JsonSerializable
         return [
             "name" => $this->getName(),
             "components" => $this->getComponents(),
-            "devices" => $this->getDevices()
+            "devices" => $this->getDevices(),
         ];
     }
 }

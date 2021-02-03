@@ -36,6 +36,7 @@ class Keyboard extends AbstractDevice
     {
         $array = parent::jsonSerialize();
         $array["format"] = $this->format;
+        $array["type"] = self::class;
         return $array;
     }
 }

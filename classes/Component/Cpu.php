@@ -36,6 +36,7 @@ class Cpu extends AbstractComponent
     {
         $array = parent::jsonSerialize();
         $array["frequency"] = $this->frequency;
+        $array["type"] = self::class;
         return $array;
     }
 }

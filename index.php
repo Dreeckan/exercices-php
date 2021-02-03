@@ -151,4 +151,6 @@ var_dump($testValidationDesktop1->validate($desktop1));
 // $tablet1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
 // $tablet1->setDevices([$mouse, $keyboard, $speaker]);
 
+var_dump(json_encode($desktop1));
+
 /****************************************************************************************/

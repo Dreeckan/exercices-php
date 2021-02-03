@@ -36,6 +36,7 @@ class Ram extends AbstractComponent
     {
         $array = parent::jsonSerialize();
         $array["size"] = $this->size;
+        $array["type"] = self::class;
         return $array;
     }
 }

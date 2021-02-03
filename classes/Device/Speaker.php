@@ -36,6 +36,7 @@ class Speaker extends AbstractDevice
     {
         $array = parent::jsonSerialize();
         $array["countSpeakers"] = $this->countSpeakers;
+        $array["type"] = self::class;
         return $array;
     }
 }

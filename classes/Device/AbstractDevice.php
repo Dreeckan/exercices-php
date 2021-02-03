@@ -20,7 +20,7 @@ abstract class AbstractDevice implements HasNameInterface, HasCompatibilityInter
     {
         return [
                 "name" => $this->getName(),
-                "brand" => $this->getBrand(),
+                "brand" => $this->getBrand()
             ];
     }
 }
