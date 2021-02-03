@@ -16,8 +16,6 @@ spl_autoload_register(function ($class) {
     require_once "classes/$class.php";
 });
 
-
-
 /**
  * Les fonctions set permettent de modifier les parametres, et le vardump les affiches.
  * Si on souhaite simplement afficher les valeur utiliser la fonction "get()".
@@ -83,6 +81,6 @@ $galaxyTab->setName("Galaxy Tab 8");
 $validator = new ComputerValidator;
 $validator->validate($msi);
 
-var_dump($validator->validate($msi));
-var_dump($validator->validate($macBook));
-var_dump($validator->validate($galaxyTab));
+echo json_encode($msi);
+echo json_encode($galaxyTab);
+echo json_encode($macBook);
