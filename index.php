@@ -18,7 +18,6 @@ spl_autoload_register(function ($class) {
 });
 
 
-
 /**
  * Les fonctions set permettent de modifier les parametres, et le vardump les affiches.
  * Si on souhaite simplement afficher les valeur utiliser la fonction "get()".
