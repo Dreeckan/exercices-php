@@ -9,6 +9,8 @@ Je vous conseille de créer une branche pour chaque exercice (une branche pour l
 - [ ] Créer un fichier `includes/autoload.php` avec ce contenu :
 ```php
 spl_autoload_register(function ($class) {
+    // Dé-commenter la ligne ci-dessous si vous utilisez un Mac avec MAMP 
+    // $class = str_replace($class, '\\', '/');
     require_once "classes/$class.php";
 });
 ```
@@ -63,7 +65,7 @@ spl_autoload_register(function ($class) {
   - [ ] Créer les classes correspondantes et les faire étendre `AbstractComponent`
   - [ ] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setComponents()` de vos objets ordinateurs
 
-- Créer les dossiers et les fichiers des composants et des périphériques
+- Créer les dossiers et les fichiers des périphériques
   - [ ] Créer le fichier `Device/AbstractDevice.php` et la classe abstraite `AbstractDevice`
   - [ ] Y ajouter les propriétés `name` et `brand`, de type string.
   - [ ] Ajouter les getters et les setters
@@ -71,3 +73,95 @@ spl_autoload_register(function ($class) {
   - [ ] Créer les classes correspondantes et les faire étendre `AbstractDevice`
   - [ ] Instancier des objets dans `index.php` et les ajouter à des ordinateurs des trois types dans `index.php`, grâce à la méthode `setDevices()` de vos objets ordinateurs
   - [ ] Constater le résultat avec un `var_dump()` pour chacun de vos objets ordinateurs
+
+## 3. Interfaces
+
+- Nous allons ajouter une interface pour nous assurer que nos ordinateurs, nos composants et nos périphériques aient certaines méthodes qui vont nous être nécessaires.
+  - [ ] Créer une branche `votreNom-exo-3`
+  - [ ] Créer le dossier `classes/Interfaces`, nous allons y ajouter nos interfaces
+  - [ ] Y créer le fichier `HasNameInterface.php` et l'interface `HasNameInterface`
+    - [ ] Les objets qui implémentent cette interface doivent implémenter la méthode `getName` avec la signature suivante `public function getName(): ?string`
+    - [ ] Et la méthode `setName` avec la signature suivante `public function setName(?string $name): HasNameInterface`
+    - [ ] Ajouter le `implements HasNameInterface` dans vos classes `AbstractDevice`, `Computer` et `AbstractComponent` (attention au `namespace` et au `use`)
+    - [ ] Vous devriez voir des erreurs apparaitre (dans VS Code ou votre navigateur). Il s'agit maintenant de les corriger avec ce que vous avez appris dans les exercices précédents ;).
+    
+  - [ ] Sur le même modèle, créer le fichier `HasBrandInterface.php` et l'interface `HasBrandInterface` avec les méthodes :
+    - [ ] `getBrand` avec la signature `public function getBrand(): ?string`
+    - [ ] `setBrand` avec la signature `public function setBrand(?string $brand): HasBrandInterface`
+    - [ ] Ajouter le `implements HasBrandInterface` dans vos classes `AbstractDevice` et `AbstractComponent` (attention au `namespace` et au `use`)
+    - [ ] Vous devriez voir des erreurs apparaitre (dans VS Code ou votre navigateur). Il s'agit maintenant de les corriger avec ce que vous avez appris dans les exercices précédents ;).
+    
+  - [ ] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github
+  
+## 4. Traits
+
+- Maintenant que nous avons forcé nos objets à avoir certaines méthodes, nous allons simplifier l'implémentation de ces méthodes en utilisant des traits (en somme, nous regroupons le code que nous avons écrit plusieurs fois et que nous avons forcé à être identique d'un fichier à l'autre)
+  - [ ] Créer une branche `votreNom-exo-4`
+  - [ ] Créer le dossier `classes/Traits`, nous allons y ranger nos traits.
+  - [ ] Y créer le fichier `HasNameTrait.php` et le trait `HasNameTrait`
+    - [ ] Y déplacer la déclaration de la propriété `$name`
+    - [ ] Y déplacer la déclaration de la méthode `getName`
+    - [ ] Y déplacer la déclaration de la méthode `setName`
+    - [ ] Appeler le trait `HasNameTrait` dans les classes `AbstractDevice`, `Computer` et `AbstractComponent` (attention aux `namespace` et aux `use`)
+    - [ ] Supprimer les autres déclaration de la propriété `$name` et des méthodes `getName`et `setName`
+    - [ ] Vérifier que votre code fonctionne toujours (et corriger si besoin)
+    
+  - [ ] Sur le même modèle créer le fichier `HasBrandTrait.php` et le trait `HasBrandTrait`
+    - [ ] Y déplacer la déclaration de la propriété `$brand`
+    - [ ] Y déplacer la déclaration de la méthode `getBrand`
+    - [ ] Y déplacer la déclaration de la méthode `setBrand`
+    - [ ] Appeler le trait `HasBrandTrait` dans les classes `AbstractDevice` et `AbstractComponent` (attention aux `namespace` et aux `use`)
+    - [ ] Supprimer les autres déclaration de la propriété `$brand` et des méthodes `getBrand`et `setBrand`
+    - [ ] Vérifier que votre code fonctionne toujours (et corriger si besoin)
+    
+  - [ ] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github
+  
+## 5. instanceof et validation de données
+
+- Nos objets sont maintenant plus courts et nous avons évité de dupliquer du code, nous pouvons commencer à ajouter d'autres éléments fonctionnels. Dans un premier temps, nous allons ajouter un objet de validation de nos objets de type `Computer`.
+  - [ ] Créer une branche `votreNom-exo-5`
+  - [ ] Ajouter une interface `ValidatorInterface` dans le dossier `Interfaces`
+  - [ ] Ajouter la signature suivante, qui va devoir être respectée par nos validateurs : `public function validate(Computer $computer): bool;`
+  - [ ] Créer le dossier `classes/Validator`, nous allons y ranger nos validateurs.
+  - [ ] Créer un fichier `ComputerValidator.php` dans ce dossier et créer la classe `ComputerValidator`
+  - [ ] Cette classe doit implémenter l'interface `ValidatorInterface` et avoir la méthode correspondante
+  - [ ] Dans cette méthode `validate`, dont le premier paramètre est un objet de type `Computer`, nous allons vérifier :
+    - Que le computer passé en paramètre contienne dans ses composants :
+      - [ ] un objet `MotherBoard`,
+      - [ ] un objet `Ram`, 
+      - [ ] un objet `Cpu`,
+      - [ ] et 0 ou un objet `GraphicCard`
+    - Que le computer passé en paramètre contienne dans ses périphériques :
+      - [ ] un objet `Keyboard`,
+      - [ ] un objet `Mouse`, 
+      - [ ] 0 ou un objet `Speaker`
+  - [ ] Instancier ce validateur dans `index.php` et utiliser la méthode `validate` sur vos différents ordinateurs pour vérifier qu'ils sont valides
+  - [ ] Faire en sorte d'avoir au moins un ordinateur qui ne soit pas valide
+  - [ ] Si ça n'est pas déjà fait, créer un ou des commits dans votre branche, pusher et créer une PR (Pull Request) sur Github. Utiliser votre branche de l'exercice 4 comme base (plutôt que `main`)
+  
+## 6. Serialisation
+
+- Nous avons un outil de validation de nos ordinateurs, il va nous falloir d'autres outils dans la vie de ce projet, avant d'utiliser un framework. Un outil qui va nous servir plus tard, la sérialisation : l'art de convertir un objet PHP en un format de communication avec d'autres langages / technologies. Nous allons faire en sorte de convertir nos objets PHP au format JSON (et préparer un peu le terrain pour la partie sur les WebServices ;) ).
+  - Implémenter l'interface [JsonSerializable](https://www.php.net/manual/fr/class.jsonserializable.php) dans les objets `Computer`, `AbstractComponent` et `AbstractDevice`. 
+    - [x] En plus d'ajouter le `implements`, il faut également implémenter la méthode `jsonSerialize()` pour décomposer nos objets en [tableaux (associatifs)](https://www.php.net/manual/fr/language.types.array.php).
+  - Ajouter des propriétés supplémentaires dans les différents composants et périphériques et surcharger la méthode `jsonSerialize()` pour ces objets.
+    - [x] Ajouter l'attribut `$frequency` (float) à la class `Cpu`, avec son getter et son setter
+    - [x] Ajouter l'attribut `$rtx` (boolean) à la class `GraphicCard`, avec son getter et son setter
+    - [x] Ajouter l'attribut `$chipset` (string|null) à la class `MotherBoard`, avec son getter et son setter
+    - [x] Ajouter l'attribut `$size` (integer) à la class `Ram`, avec son getter et son setter
+    - [x] Ajouter l'attribut `$format` (string) (ex: `AZERTY`) à la class `Keyboard`, avec son getter et son setter
+    - [x] Ajouter l'attribut `$leftHanded` (boolean) à la class `Mouse`, avec son getter et son setter
+    - [x] Ajouter l'attribut `$countSpeakers` (float) à la class `Speaker`, avec son getter et son setter
+    - [x] Mettre à jour les méthodes `jsonSerialize()` de ces classes. [Un exemple de méthode surchargée est présente dans les slides](http://formation-hb.drakolab.fr/php/3-objet.html#14) ou [l'exemple 3 de cette documentation](https://www.php.net/manual/fr/language.oop5.paamayim-nekudotayim.php)
+  - [x] Tester que la sérialisation fonctionne en utilisant la fonction `json_encode()` sur vos objets `Computer` (vous devez avoir toutes les informations de vos objets et leurs sous-objets) (faites un `echo` ou un `var_dump()` du résultat).
+  
+## 7. Compatibilité des composants et périphériques
+
+- Pour l'heure, nos composants et nos périphériques peuvent être installés dans n'importe quel ordinateur. Dans les faits, il va falloir enregistrer dans nos composants et nos périphériques avec quel(s) type(s) d'ordinateur ils sont compatibles.
+  - [ ] Ajouter une propriété `$compatibility` dans `AbstractComponent` et `AbstractDevice` et ses méthodes. Pour ça, créer un trait (je vous laisse voir le nom ET le rangement :P ).
+  - [ ] Ajouter également dans ce trait une méthode `isCompatibleWith($className)` qui va prendre en paramètre un FQCN (Fully Qualified Class Name) (renvoyé par exemple par `Laptop::class`) et va renvoyer si l'élément est compatible avec ce type d'objet.
+  - [ ] Modifier le comportement de `setComponents()` et `setDevices()`. On va vouloir ajouter les éléments un par un et vérifier au fur et à mesure que l'élément ajouté est bien compatible avec le type d'ordinateur choisi. Si la pièce n'est pas compatible, il va falloir [lever une exception](https://www.php.net/manual/fr/language.exceptions.php) (une erreur)
+  - [ ] Utiliser ces éléments dans `index.php` : 
+    - [ ] Ajouter plusieurs pièces dans `index.php`, compatibles avec différents types d'ordinateur (mais pas tous ;)). Les ajouter à des ordinateurs.
+    - [ ] Faites des cas qui fonctionnent, d'autres non, pour voir votre exception.
+  - [ ] Mettre à jour le `ComputerValidator` pour assurer que tous les composants et périphériques sont bien compatibles avec l'ordinateur qui est validé.
