@@ -59,6 +59,7 @@ abstract class Computer implements HasNameInterface, JsonSerializable
     public function jsonSerialize(): array
     {
         return [
+            'type'       => get_class($this),
             'name'       => $this->getName(),
             'components' => $this->getComponents(),
             'devices'    => $this->getDevices(),

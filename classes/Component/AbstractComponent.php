@@ -19,6 +19,7 @@ abstract class AbstractComponent implements HasNameInterface, HasBrandInterface,
     public function jsonSerialize(): array
     {
         return [
+            'type'  => get_class($this),
             'name'  => $this->getName(),
             'brand' => $this->getBrand(),
         ];

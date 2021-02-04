@@ -124,7 +124,19 @@ $isValid = $validator->validate($c3);
 $isValid = $validator->validate($c4);
 //var_dump($isValid);
 
-echo json_encode($c);
-echo json_encode($c2);
-echo json_encode($c3);
-echo json_encode($c4);
+if (isset($_GET['api'])) {
+    header('Content-type: application/json');
+
+    echo json_encode([
+        $c,
+        $c2,
+        $c3,
+        $c4,
+    ]);
+    exit();
+}
+
+echo json_encode($c).'<br />';
+echo json_encode($c2).'<br />';
+echo json_encode($c3).'<br />';
+echo json_encode($c4).'<br />';
