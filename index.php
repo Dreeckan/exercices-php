@@ -97,7 +97,6 @@ $desktop1 = new Computer\Desktop();
 $desktop1->setName("Asus");
 var_dump($desktop1->getType());
 
-
 // test lors d'ajout de components et devices
 try {
     $desktop1->setComponents($cpu);
