@@ -1,8 +1,7 @@
 <?php
 
-include "../includes/connect.php";
-include "../includes/autoload.php";
-include "../Create/create-computer.php";
+require_once "../includes/connect.php";
+require_once "../Create/create-computer.php";
 
 $computers = [
     $desktop1,
@@ -21,7 +20,7 @@ $sql = "INSERT INTO computer(name, type) VALUES (:name, :type)";
 $stmt = $connection->prepare($sql);
 foreach ($computers as $computer) {
     $name = $computer->getName();
-    $type = $computer->type;
+    $type = $computer->getType();
 
     $stmt->bindParam(':name', $name, PDO::PARAM_STR);
     $stmt->bindParam(':type', $type, PDO::PARAM_STR);

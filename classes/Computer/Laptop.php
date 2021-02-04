@@ -10,6 +10,19 @@ class Laptop extends AbstractComputer
      */
     protected $type = self::class;
 
+    /**
+     * Set the value of type
+     *
+     * @param  string  $type
+     *
+     * @return  self
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
     
     /**
      * Get the value of type

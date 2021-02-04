@@ -4,12 +4,15 @@ namespace Computer;
 
 use Exception;
 use Interfaces\HasNameInterface;
+use Interfaces\HasIdInterface;
 use Traits\HasNameTrait;
 use JsonSerializable;
+use Traits\HasIdTrait;
 
-abstract class AbstractComputer implements HasNameInterface, JsonSerializable
+abstract class AbstractComputer implements HasNameInterface, JsonSerializable, HasIdInterface
 {
     use HasNameTrait;
+    use HasIdTrait;
 
     /**
      * @var array

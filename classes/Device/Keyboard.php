@@ -2,24 +2,11 @@
 
 namespace Device;
 
+use Traits\HasTypeTrait;
+
 class Keyboard extends AbstractDevice
 {
-
-    /**
-     * @var string
-     */
-    protected $type = self::class;
-
-    
-    /**
-     * Get the value of type
-     *
-     * @return  string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
+    use HasTypeTrait;
 
     /**
      * @var string

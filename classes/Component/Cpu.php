@@ -2,24 +2,11 @@
 
 namespace Component;
 
+use Traits\HasTypeTrait;
+
 class Cpu extends AbstractComponent
 {
-
-    /**
-     * @var string
-     */
-    protected $type = self::class;
-
-    
-    /**
-     * Get the value of type
-     *
-     * @return  string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
+    use HasTypeTrait;
 
     /**
      * @var float
