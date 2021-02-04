@@ -9,9 +9,6 @@ abstract class Computer implements HasNameInterface, JsonSerializable
 {
     use HasNameTrait;
   
-
-    
-    
     /** * @var array */
     protected $devices = [];
 

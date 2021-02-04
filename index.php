@@ -14,6 +14,7 @@ use Device\Speaker;
 use Validator\ComputerValidator;
 
 include "includes/autoload.php";
+include 'includes/connect.php';
 
 /*
 $desktop1 = new Desktop();
@@ -118,3 +119,8 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
+
+?>
+
+<a href="insert-computer.php">insert</a>
+<a href="select-computer.php">select</a>
