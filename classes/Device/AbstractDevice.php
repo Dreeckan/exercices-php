@@ -11,16 +11,17 @@ use JsonSerializable;
 use Traits\HasNameTrait;
 use Traits\HasBrandTrait;
 use Traits\HasCompatibilityTrait;
+use Traits\HasGetObjectVarsTrait;
 use Traits\HasTypeTrait;
 use Traits\HasIdTrait;
 
-abstract class AbstractDevice implements HasNameInterface, HasCompatibilityInterface, HasBrandInterface, JsonSerializable, HasTypeInterface, HasIdInterface
+abstract class AbstractDevice implements HasNameInterface, HasCompatibilityInterface, HasBrandInterface, JsonSerializable, HasIdInterface
 {
     use HasNameTrait;
     use HasBrandTrait;
     use HasCompatibilityTrait;
     use HasIdTrait;
-    use HasTypeTrait;
+    use HasGetObjectVarsTrait;
 
     public function jsonSerialize(): array
     {

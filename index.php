@@ -6,7 +6,7 @@ use Computer\Desktop;
 use Computer\Laptop;
 use Computer\Tablet;
 
-require_once "includes/autoload.php";
+require_once "includes/autoloadRoot.php";
 
 
 if (isset($GET_['api'])) {
@@ -95,7 +95,7 @@ $speaker->setCompatibility([
 
 $desktop1 = new Computer\Desktop();
 $desktop1->setName("Asus");
-var_dump($desktop1->type);
+var_dump($desktop1->getType());
 
 
 // test lors d'ajout de components et devices

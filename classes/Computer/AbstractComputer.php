@@ -7,12 +7,14 @@ use Interfaces\HasNameInterface;
 use Interfaces\HasIdInterface;
 use Traits\HasNameTrait;
 use JsonSerializable;
+use Traits\HasGetObjectVarsTrait;
 use Traits\HasIdTrait;
 
 abstract class AbstractComputer implements HasNameInterface, JsonSerializable, HasIdInterface
 {
     use HasNameTrait;
     use HasIdTrait;
+    use HasGetObjectVarsTrait;
 
     /**
      * @var array
