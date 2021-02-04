@@ -34,4 +34,9 @@ class Ram extends AbstractComponent
     {
         return $this->type;
     }
+    public function setType($s)
+    {
+        $this->type = $s;
+        return $this;
+    }
 }
