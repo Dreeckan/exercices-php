@@ -4,6 +4,23 @@ namespace Component;
 
 class MotherBoard extends AbstractComponent
 {
+
+    /**
+     * @var string
+     */
+    protected $type = self::class;
+
+    
+    /**
+     * Get the value of type
+     *
+     * @return  string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * @var string|null
      */
@@ -35,8 +52,7 @@ class MotherBoard extends AbstractComponent
     public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
-        $array["chipset"] = $this->chipset;
-        $array["type"] = self::class;
+        $array["chipset"] = $this->getChipset();
         return $array;
     }
 }

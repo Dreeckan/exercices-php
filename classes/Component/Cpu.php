@@ -4,6 +4,23 @@ namespace Component;
 
 class Cpu extends AbstractComponent
 {
+
+    /**
+     * @var string
+     */
+    protected $type = self::class;
+
+    
+    /**
+     * Get the value of type
+     *
+     * @return  string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * @var float
      */
@@ -35,8 +52,7 @@ class Cpu extends AbstractComponent
     public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
-        $array["frequency"] = $this->frequency;
-        $array["type"] = self::class;
+        $array["frequency"] = $this->getFrequency();
         return $array;
     }
 }

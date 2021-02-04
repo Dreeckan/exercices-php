@@ -4,6 +4,23 @@ namespace Device;
 
 class Speaker extends AbstractDevice
 {
+
+    /**
+     * @var string
+     */
+    protected $type = self::class;
+
+    
+    /**
+     * Get the value of type
+     *
+     * @return  string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * @var float
      */
@@ -35,8 +52,7 @@ class Speaker extends AbstractDevice
     public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
-        $array["countSpeakers"] = $this->countSpeakers;
-        $array["type"] = self::class;
+        $array["countSpeakers"] = $this->getCountSpeakers();
         return $array;
     }
 }

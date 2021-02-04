@@ -8,6 +8,14 @@ use Computer\Tablet;
 
 require_once "includes/autoload.php";
 
+
+if (isset($GET_['api'])) {
+    header('Content-type: application/json');
+    echo json_encode($desktop1);
+    exit();
+}
+
+
 // instanciation des components
 
 $cpu = new Component\Cpu();
@@ -87,6 +95,8 @@ $speaker->setCompatibility([
 
 $desktop1 = new Computer\Desktop();
 $desktop1->setName("Asus");
+var_dump($desktop1->type);
+
 
 // test lors d'ajout de components et devices
 try {
@@ -151,6 +161,6 @@ var_dump($testValidationDesktop1->validate($desktop1));
 // $tablet1->setComponents([$cpu, $graphicCard, $motherBoard, $ram]);
 // $tablet1->setDevices([$mouse, $keyboard, $speaker]);
 
-var_dump(json_encode($desktop1));
+// var_dump(json_encode($desktop1));
 
 /****************************************************************************************/

@@ -4,6 +4,23 @@ namespace Device;
 
 class Keyboard extends AbstractDevice
 {
+
+    /**
+     * @var string
+     */
+    protected $type = self::class;
+
+    
+    /**
+     * Get the value of type
+     *
+     * @return  string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * @var string
      */
@@ -35,8 +52,7 @@ class Keyboard extends AbstractDevice
     public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
-        $array["format"] = $this->format;
-        $array["type"] = self::class;
+        $array["format"] = $this->getFormat();
         return $array;
     }
 }

@@ -4,6 +4,23 @@ namespace Component;
 
 class GraphicCard extends AbstractComponent
 {
+
+    /**
+     * @var string
+     */
+    protected $type = self::class;
+
+    
+    /**
+     * Get the value of type
+     *
+     * @return  string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * @var bool
      */
@@ -35,8 +52,7 @@ class GraphicCard extends AbstractComponent
     public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
-        $array["rtx"] = $this->rtx;
-        $array["type"] = self::class;
+        $array["rtx"] = $this->getRtx();
         return $array;
     }
 }

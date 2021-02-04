@@ -4,6 +4,23 @@ namespace Device;
 
 class Mouse extends AbstractDevice
 {
+
+    /**
+     * @var string
+     */
+    protected $type = self::class;
+
+    
+    /**
+     * Get the value of type
+     *
+     * @return  string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * @var bool
      */
@@ -35,8 +52,7 @@ class Mouse extends AbstractDevice
     public function jsonSerialize(): array
     {
         $array = parent::jsonSerialize();
-        $array["leftHanded"] = $this->leftHanded;
-        $array["type"] = self::class;
+        $array["leftHanded"] = $this->getLeftHanded();
         return $array;
     }
 }
