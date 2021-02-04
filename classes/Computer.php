@@ -6,7 +6,7 @@ use Interfaces\HasBrandInterface;
 use Interfaces\HasNameInterface;
 use Traits\HasNameTrait;
 
-abstract class  Computer implements HasNameInterface
+abstract class Computer implements HasNameInterface, JsonSerializable
 {
     /**
      * @var array
@@ -43,4 +43,16 @@ abstract class  Computer implements HasNameInterface
     }
 
     use HasNameTrait;
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'name'       => $this->getName(),
+            'components' => $this->getComponents(),
+            'devices'    => $this->getDevices(),
+        ];
+    }
 }

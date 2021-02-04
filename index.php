@@ -49,7 +49,7 @@ $desktop0->setDevices([$mouse0, $keyboard0, $speaker0]);
 $desktop0->setName('PC Cdiscount');
 
 $laptop0 = new Laptop();
-$laptop0->setComponents([$cpu0, $gpu0, $ram0]);
+$laptop0->setComponents([$cpu0, $mb0, $gpu0, $ram0]);
 $laptop0->setDevices([$mouse0, $keyboard0, $speaker0]);
 $laptop0->setName('MSI P800 Gaming');
 
@@ -73,3 +73,12 @@ var_dump($validator->validate($desktop0));
 var_dump($validator->validate($laptop0));
 
 var_dump($validator->validate($tablet0));
+
+echo json_encode($desktop0);
+echo json_encode($laptop0);
+echo json_encode($tablet0);
+
+/*if (isset($GET_['api'])) {
+    header('Content-type: application/json');
+    echo json_encode($desktop0);
+}*/
