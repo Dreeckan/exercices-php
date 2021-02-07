@@ -27,6 +27,18 @@ class Keyboard extends AbstractDevice
         return $this;
     }
 
+    public function getTableName(): string
+    {
+        return 'keyboard';
+    }
+
+    public function getSpecificFields(): array
+    {
+        return [
+            'format' => '"'.$this->getFormat().'"',
+        ];
+    }
+
     /**
      * @return array
      */

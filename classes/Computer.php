@@ -1,10 +1,12 @@
 <?php
 
 use Interfaces\HasNameInterface;
+use Traits\HasIdTrait;
 use Traits\HasNameTrait;
 
 abstract class Computer implements HasNameInterface, JsonSerializable
 {
+    use HasIdTrait;
     use HasNameTrait;
 
     /** @var array */
@@ -60,6 +62,7 @@ abstract class Computer implements HasNameInterface, JsonSerializable
     {
         return [
             'type'       => get_class($this),
+            'id'         => $this->getId(),
             'name'       => $this->getName(),
             'components' => $this->getComponents(),
             'devices'    => $this->getDevices(),

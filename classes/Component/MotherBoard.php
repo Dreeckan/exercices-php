@@ -27,6 +27,18 @@ class MotherBoard extends AbstractComponent
         return $this;
     }
 
+    public function getTableName(): string
+    {
+        return 'motherboard';
+    }
+
+    public function getSpecificFields(): array
+    {
+        return [
+            'chipset' => '"'.$this->getChipset().'"',
+        ];
+    }
+
     /**
      * @return array
      */
