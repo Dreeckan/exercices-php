@@ -27,6 +27,18 @@ class Mouse extends AbstractDevice
         return $this;
     }
 
+    public function getTableName(): string
+    {
+        return 'mouse';
+    }
+
+    public function getSpecificFields(): array
+    {
+        return [
+            'leftHanded' => $this->isLeftHanded(),
+        ];
+    }
+
     /**
      * @return array
      */

@@ -27,6 +27,18 @@ class Speaker extends AbstractDevice
         return $this;
     }
 
+    public function getTableName(): string
+    {
+        return 'speaker';
+    }
+
+    public function getSpecificFields(): array
+    {
+        return [
+            'countSpeakers' => $this->getCountSpeakers(),
+        ];
+    }
+
     /**
      * @return array
      */

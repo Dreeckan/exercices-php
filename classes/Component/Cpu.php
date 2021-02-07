@@ -27,6 +27,18 @@ class Cpu extends AbstractComponent
         return $this;
     }
 
+    public function getTableName(): string
+    {
+        return 'cpu';
+    }
+
+    public function getSpecificFields(): array
+    {
+        return [
+            'frequency' => $this->getFrequency(),
+        ];
+    }
+
     /**
      * @return array
      */

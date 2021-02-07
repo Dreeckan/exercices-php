@@ -27,6 +27,18 @@ class Ram extends AbstractComponent
         return $this;
     }
 
+    public function getTableName(): string
+    {
+        return 'ram';
+    }
+
+    public function getSpecificFields(): array
+    {
+        return [
+            'size' => $this->getSize(),
+        ];
+    }
+
     /**
      * @return array
      */

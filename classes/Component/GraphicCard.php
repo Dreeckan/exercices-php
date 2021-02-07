@@ -27,6 +27,18 @@ class GraphicCard extends AbstractComponent
         return $this;
     }
 
+    public function getTableName(): string
+    {
+        return 'graphiccard';
+    }
+
+    public function getSpecificFields(): array
+    {
+        return [
+            'rtx' => intval($this->isRtx()),
+        ];
+    }
+
     /**
      * @return array
      */
